@@ -39,7 +39,7 @@ Help animals by adopting an animal that needs a new caretaker or give up your an
 | `GET` | `/profile` | Private route. Renders `profile` view. | |
 | `GET` | `/edit-profile` | Private route. Renders `edit-profile` form view. | |
 | `PUT` | `/edit-profile` | Private route. Sends edit-profile info to server and updates user in DB. | { email, password, name, [imageUrl], {adress}, phone number, birthdate, favorite animal } |
-| `GET` | `animal/list` | Render the `animals(cats or dog list)` view. | | --> do we need 2 list pages or can we dynamically change the animal views fe. with an if statement + DOM Manipulation.
+| `GET` | `/animal/list` | Render the `animals(cats or dog list)` view. | | --> do we need 2 list pages or can we dynamically change the animal views fe. with an if statement + DOM Manipulation.
 | `GET` | `/animal:id/details` | Private route. Render the `details` view. | |
 | `POST` | `/adoption-post/create` | Private route. Adds an animal to the database and to the list. | { name, age, image, species, breed, } | => redirects to animals details page
 | `GET` | `/animal:id/edit-details` | Private route. Renders `edit-details` form view. | |
