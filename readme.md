@@ -41,7 +41,7 @@ Help animals by adopting an animal that needs a new caretaker or give up your an
 | `PUT`      | `/edit-profile`                    | Private route. Sends edit-profile info to server and updates user in DB. | { email, password, [firstName], [lastName], [imageUrl], {address}, phone number, birthday, favourite animal  } |
 | `GET`      | `/animals/list`                    | Private route. Render the `animals` view.                  |                                                          |
 | `GET`      | `/animals:id/details`              | Private route. Render the `details` view.                  |                                                          |
-| `GET`     | `/adoption-post/create`             | Private route. Render the `adoption post` view.                    | { name, age, color, imageUrl, species, breed}                                 |
+| `GET`     | `/adoption-post/create`             | Private route. Render the `adoption post` view.                    |                                 |
 | `POST`     | `/adoption-post/create`             | Private route. Adds a animal do the DB.                    | { name, age, color, imageUrl, species, breed}                                 |
 | `GET`   | `/animal:id/edit-details`              | Private route. Renders edit-details form view. |                                                          |
 | `PUT`   | `/animal:id/edit-details`              | Private route. Sends edit-details info to server and updates animals in DB. |  
