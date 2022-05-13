@@ -45,9 +45,8 @@ Help animals by adopting an animal that needs a new caretaker or give up your an
 | `GET` | `/animal:id/edit-details` | Private route. Renders `edit-details` form view. | |
 | `PUT` | `/animal:id/edit-details` | Private route. Sends edit-animals info to server and updates user in DB.| |
 | `DELETE` | `/animal:id/details` | Private route. Deletes the existing adotion post | |
-| `DELETE` | `/private/favorites/:restaurantId` | Private route. Deletes the existing favorite from the current user. | |
-| `GET` | `/restaurants` | Renders `restaurant-list` view. | |
-| `GET` | `/restaurants/details/:id` | Renders `restaurant-details` view for the particular restaurant. | |
+
+
 
 ## Models
 
@@ -66,7 +65,7 @@ User model
   birthdate: String,
   imageUrl: String,
   adoptionPost: [adoptionPostId]
- favorites: [FavoriteId], ??????????
+  favorites: [animalId]
 }
 
 ```
@@ -84,16 +83,6 @@ imageUrl: String,
 }
 
 
-```
-
-Favorites model
-
-```javascript
-{
-  placeId: String,
-}
-
-```
 
 <br>
 
