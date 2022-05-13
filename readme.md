@@ -62,15 +62,15 @@ User model
   phonenumber: Number,
   birthdate: String,
   imageUrl: String,
-  adoptionPost: [adoptionPostId]
- favorites: [animalId]
+  adoptionPost: [adoptionPostId],
+  favorites: [animalId]
 }
 
 ```
 
 Animals model
 
-````javascript
+```javascript
 {
 name: String,
 age: Number,
@@ -80,9 +80,7 @@ imageUrl: String,
 
 }
 
-```javascript
-
-````
+```
 
 <br>
 
