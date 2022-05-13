@@ -29,24 +29,23 @@ Help animals by adopting an animal that needs a new caretaker or give up your an
 
 ## Server Routes (Back-end):
 
-| **Method** | **Route**                          | **Description**                                              | Request  - Body                                          |
-| ---------- | ---------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------- |
-| `GET`      | `/`                                | Main page route.  Renders home `index` view.                 |                                                          |
-| `GET`      | `/login`                           | Renders `login` form view.                                   |                                                          |
-| `POST`     | `/login`                           | Sends Login form data to the server.                         | { email, password }                                      |
-| `GET`      | `/signup`                          | Renders `signup` form view.                                  |                                                          |
-| `POST`     | `/signup`                          | Sends Sign Up info to the server and creates user in the DB. | {  email, password, name, address, phone number, birthday, favourite animal,, imageUrl  }                                    |
-| `GET`      | `/profile`                         | Private route. Renders `profile` form view.                  |                                                          |
-| `GET`      | `/edit-profile`                    | Private route. Renders `edit-profile` form view.             |                                                          |
-| `PUT`      | `/edit-profile`                    | Private route. Sends edit-profile info to server and updates user in DB. | { email, password, [firstName], [lastName], [imageUrl], {address}, phone number, birthday, favourite animal  } |
-| `GET`      | `/animals/list`                    | Private route. Render the `animals` view.                  |                                                          |
-| `GET`      | `/animals:id/details`              | Private route. Render the `details` view.                  |                                                          |
-| `GET`     | `/adoption-post/create`             | Private route. Render the `adoption post` view.                    |                                 |
-| `POST`     | `/adoption-post/create`             | Private route. Adds a animal do the DB.                    | { name, age, color, imageUrl, species, breed}                                 |
-| `GET`   | `/animal:id/edit-details`              | Private route. Renders edit-details form view. |                                                          |
-| `PUT`   | `/animal:id/edit-details`              | Private route. Sends edit-details info to server and updates animals in DB. |  
-| `DELETE`      | `/animals:id/details`            | Private route. Deletes the existing adoption post                              |                                                          |
-
+| **Method** | **Route**                   | **Description**                                                             | Request - Body                                                                                                |
+| ---------- | --------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `GET`      | `/`                         | Main page route. Renders home `index` view.                                 |                                                                                                               |
+| `GET`      | `/login`                    | Renders `login` form view.                                                  |                                                                                                               |
+| `POST`     | `/login`                    | Sends Login form data to the server.                                        | { email, password }                                                                                           |
+| `GET`      | `/signup`                   | Renders `signup` form view.                                                 |                                                                                                               |
+| `POST`     | `/signup`                   | Sends Sign Up info to the server and creates user in the DB.                | { email, password, name, address, phone number, birthday, favourite animal,, imageUrl }                       |
+| `GET`      | `/profile`                  | Private route. Renders `profile` form view.                                 |                                                                                                               |
+| `GET`      | `/edit-profile`             | Private route. Renders `edit-profile` form view.                            |                                                                                                               |
+| `PUT`      | `/edit-profile`             | Private route. Sends edit-profile info to server and updates user in DB.    | { email, password, [firstName], [lastName], [imageUrl], {address}, phone number, birthday, favourite animal } |
+| `GET`      | `/animals/list`             | Private route. Render the `animals` view.                                   |                                                                                                               |
+| `GET`      | `/animals:id/details`       | Private route. Render the `details` view.                                   |                                                                                                               |
+| `GET`      | `/adoption-post/create`     | Private route. Render the `adoption post` view.                             |                                                                                                               |
+| `POST`     | `/adoption-post/create`     | Private route. Adds a animal do the DB.                                     | { name, age, color, imageUrl, species, breed}                                                                 |
+| `GET`      | `/animals/:id/edit-details` | Private route. Renders edit-details form view.                              |                                                                                                               |
+| `PUT`      | `/animals/:id/edit-details` | Private route. Sends edit-details info to server and updates animals in DB. |
+| `DELETE`   | `/animals/:id/details`      | Private route. Deletes the existing adoption post                           |                                                                                                               |
 
 ## Models
 
