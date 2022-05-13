@@ -13,11 +13,16 @@ router.post("/adoption-post/create", (req, res, next) => {
     const { name, age, color, species, breed, imageUrl } = req.body;
     
     Animal.create({ name, age, color, species, breed, imageUrl })
-        .then((animal) =>
-            res.send('okay'))
+        .then((animal) => {
+        
+
+            // res.redirect('/adoption-post/animal._id')
+            res.render('animals/animal-details', { animal })
+        })
         .catch((err) => next(err))
-        // res.redirect(`/animals/${animal._id}`) 
 })
+
+
 
 
 //////////////////////////////////////////
