@@ -41,11 +41,10 @@ Help animals by adopting an animal that needs a new caretaker or give up your an
 | `PUT`      | `/edit-profile`           | Private route. Sends edit-profile info to server and updates user in DB. | { email, password, name, [imageUrl], {adress}, phone number, birthdate, favorite animal } |
 | `GET`      | `/animal/list`            | Render the `animals(cats or dog list)` view.                             |                                                                                           | --> do we need 2 list pages or can we dynamically change the animal views fe. with an if statement + DOM Manipulation. |
 | `GET`      | `/animal:id/details`      | Private route. Render the `details` view.                                |                                                                                           |
-| `POST`     | `/adoption-post/create`   | Private route. Adds an animal to the database and to the list.           | { name, age, color, image, species, breed, }                                              | => redirects to animals details page                                                                                   |
+| `POST`     | `/adoption-post/create`   | Private route. Adds an animal to the database and to the list.           | { name, age, image, species, breed, }                                                     | => redirects to animals details page                                                                                   |
 | `GET`      | `/animal:id/edit-details` | Private route. Renders `edit-details` form view.                         |                                                                                           |
 | `PUT`      | `/animal:id/edit-details` | Private route. Sends edit-animals info to server and updates user in DB. |                                                                                           |
 | `DELETE`   | `/animal:id/details`      | Private route. Deletes the existing adotion post                         |                                                                                           |
-
 ## Models
 
 User model
