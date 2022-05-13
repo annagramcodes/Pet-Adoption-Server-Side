@@ -1,4 +1,12 @@
 <div>
-  <h1>These {{animals[0].species}} are looking for new homes</h1>
+  {{#each animal}}
+    <h1>These {{species}}s are looking for new homes</h1>
 
+    <div class="row">
+      <div class="card">
+
+        <h5 class="card-title"> Name: {{name}}</h5>
+      </div>
+    </div>
+  {{/each}}
 </div>

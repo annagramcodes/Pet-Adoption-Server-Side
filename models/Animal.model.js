@@ -4,9 +4,17 @@ const animalSchema = new Schema({
     name: String,
     age: Number,
     color: String,
-    species: String,
+    species: {
+      type: String,
+      required: [true],
+      lowercase: true,
+    },
     breed: String,
-    imageUrl: String, 
+    imageUrl: {
+        type: String,
+        // default:
+        //   'https://res.cloudinary.com/mraferreira/image/upload/v1652347918/movie-project/mvc_67565_urfvwr.jpg',
+      },
 })
 
 const Animal = model("Animal", animalSchema);
