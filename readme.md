@@ -123,6 +123,6 @@ The url to your presentation slides
 
 ### Contributors
 
-Duarte Alves - [`<github-username>`](https://github.com/drttyy/) - [`<linkedin-profile-link>`](https://www.linkedin.com/in/duarte-alves-97157b227/)
+Duarte Alves - [`Github`](https://github.com/drttyy/) - [`<linkedin-profile-link>`](https://www.linkedin.com/in/duarte-alves-97157b227/)
 
-Anna Egger - [`<github-username>`](https://github.com/annagramcodes) - [`<linkedin-profile-link>`](https://www.linkedin.com/in/anna-egger/)
+Anna Egger - [`Github`](https://github.com/annagramcodes) - [`<linkedin-profile-link>`](https://www.linkedin.com/in/anna-egger/)
