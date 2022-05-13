@@ -2,8 +2,8 @@
   <div class="col sm-6">
     <form
       action="/adoption-post/create"
-      method="post"
-      enctype="multipart/form-data"
+      method="POST"
+
     >
       <div class="form-group">
         <label for="name">Animals' Name</label>
@@ -47,7 +47,7 @@
       </div>
       <div class="form-group">
         <label for="image">Image</label>
-        <input type="file" name="image" id="image" />
+        <input type="text" name="image" id="image" />
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
