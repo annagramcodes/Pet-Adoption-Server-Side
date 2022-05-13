@@ -4,7 +4,7 @@ const { Schema, model } = require("mongoose");
 const userSchema = new Schema({
   name: {
     type: String,
-    required: [true, "Please input a name"],
+    /* required: [true, "Please input a name"], */
   },
   email: {
     type: String,
@@ -18,6 +18,28 @@ const userSchema = new Schema({
     type: String,
     required: [true, "Please input a password"],
   },
+  phonenumber: {
+    type: Number,
+    /* required: Number, */
+    unique: true,
+  },
+  address: [
+    {
+      type: String,
+      /* required: true, */
+    },
+    { zipcode: String, required: true },
+  ],
+  birthdate: {
+    type: String, // ???
+    /* required: true, */
+  },
+  imgUrl: {
+    type: String,
+    default: "",
+  },
+  adoptionPost: [{ type: Schema.Types.ObjectId, ref: "Animal" }], //ask how this works
+  favorite: [{ type: Schema.Types.ObjectId, ref: "Animal" }], // ???
 });
 
 const User = model("User", userSchema);
