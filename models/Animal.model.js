@@ -4,7 +4,11 @@ const animalSchema = new Schema({
     name: String,
     age: Number,
     color: String,
-    species: String,
+    species: {
+      type: String,
+      required: [true],
+      lowercase: true,
+    },
     breed: String,
     imageUrl: {
         type: String,

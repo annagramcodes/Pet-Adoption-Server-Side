@@ -23,12 +23,25 @@ router.post("/adoption-post/create", (req, res, next) => {
 //////////////////////////////////////////
 // RENDERING THE LIST OF ADOPTION POSTS //
 
-router.get("/animals-for-adoption", (res, req, next) =>
-  Animal.find({species: cat})
-    .then((animal) => {
-      res.render("animals/animal-list.hbs", { animal });
-    })
-    .catch((err) => next(err))
-);
+router.get("/animals-for-adoption/cats", (req, res, next) => {
+
+    Animal.find({ species: 'cat' })
+        .then((animal) => {
+            res.render("animals/animal-list.hbs", { animal });
+    
+        })
+        .catch((err) => next(err))
+});
+
+
+router.get("/animals-for-adoption/dogs", (req, res, next) => {
+
+    Animal.find({ species: 'dog' })
+        .then((animal) => {
+            res.render("animals/animal-list.hbs", { animal });
+    
+        })
+        .catch((err) => next(err))
+});
 
 module.exports = router;
