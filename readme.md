@@ -33,23 +33,18 @@ Help animals by adopting an animal that needs a new caretaker or give up your an
 | ---------- | --------- | ------------------------------------------------------------ | -------------------------------------------------------------------------- |
 | `GET`      | `/`       | Main page route. Renders home `index` view.                  |                                                                            |
 | `GET`      | `/login`  | Renders `login` form view.                                   |                                                                            |
-| `POST      | `/login`  | Sends Login form data to the server.                         | { email, password }                                                        |
+| `POST`     | `/login`  | Sends Login form data to the server.                         | { email, password }                                                        |
 | `GET`      | `/signup` | Renders `signup` form view.                                  |                                                                            |
-| `POST      | `/signup` | Sends Sign Up info to the server and creates user in the DB. | { email, password, name, adress, phone number, birthdate, favorite animal} |
-
+| `POST`     | `/signup` | Sends Sign Up info to the server and creates user in the DB. | { email, password, name, adress, phone number, birthdate, favorite animal} |
 | `GET` | `/profile` | Private route. Renders `profile` view. | |
 | `GET` | `/edit-profile` | Private route. Renders `edit-profile` form view. | |
 | `PUT` | `/edit-profile` | Private route. Sends edit-profile info to server and updates user in DB. | { email, password, name, [imageUrl], {adress}, phone number, birthdate, favorite animal } |
-
 | `GET` | `(animal)/list` | Render the `animals(cats or dog list)` view. | | --> do we need 2 list pages or can we dynamically change the animal views fe. with an if statement + DOM Manipulation.
-
-// ANIMAL DETAILS PAGE - CRUD //
 | `GET` | `/animal:id/details` | Private route. Render the `details` view. | |
 | `POST` | `/adoption-post/create` | Private route. Adds an animal to the database and to the list. | { name, age, image, species, breed, } | => redirects to animals details page
 | `GET` | `/animal:id/edit-details` | Private route. Renders `edit-details` form view. | |
 | `PUT` | `/animal:id/edit-details` | Private route. Sends edit-animals info to server and updates user in DB.| |
 | `DELETE` | `/animal:id/details` | Private route. Deletes the existing adotion post | |
-
 | `DELETE` | `/private/favorites/:restaurantId` | Private route. Deletes the existing favorite from the current user. | |
 | `GET` | `/restaurants` | Renders `restaurant-list` view. | |
 | `GET` | `/restaurants/details/:id` | Renders `restaurant-details` view for the particular restaurant. | |
