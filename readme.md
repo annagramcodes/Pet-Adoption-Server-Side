@@ -35,14 +35,17 @@ Help animals by adopting an animal that needs a new caretaker or give up your an
 | `GET`      | `/login`                           | Renders `login` form view.                                   |                                                          |
 | `POST`     | `/login`                           | Sends Login form data to the server.                         | { email, password }                                      |
 | `GET`      | `/signup`                          | Renders `signup` form view.                                  |                                                          |
-| `POST`     | `/signup`                          | Sends Sign Up info to the server and creates user in the DB. | {  email, password  }                                    |
-| `GET`      | `/private/edit-profile`            | Private route. Renders `edit-profile` form view.             |                                                          |
-| `PUT`      | `/private/edit-profile`            | Private route. Sends edit-profile info to server and updates user in DB. | { email, password, [firstName], [lastName], [imageUrl] } |
-| `GET`      | `/private/favorites`               | Private route. Render the `favorites` view.                  |                                                          |
-| `POST`     | `/private/favorites/`              | Private route. Adds a new favorite for the current user.     | { name, cuisine, city, }                                 |
-| `DELETE`   | `/private/favorites/:restaurantId` | Private route. Deletes the existing favorite from the current user. |                                                          |
-| `GET`      | `/restaurants`                     | Renders `restaurant-list` view.                              |                                                          |
-| `GET`      | `/restaurants/details/:id`         | Renders `restaurant-details` view for the particular restaurant. |                                                          |
+| `POST`     | `/signup`                          | Sends Sign Up info to the server and creates user in the DB. | {  email, password, name, address, phone number, birthday, favourite animal,, imageUrl  }                                    |
+| `GET`      | `/profile`                         | Private route. Renders `profile` form view.                  |                                                          |
+| `GET`      | `/edit-profile`                    | Private route. Renders `edit-profile` form view.             |                                                          |
+| `PUT`      | `/edit-profile`                    | Private route. Sends edit-profile info to server and updates user in DB. | { email, password, [firstName], [lastName], [imageUrl], {address}, phone number, birthday, favourite animal  } |
+| `GET`      | `/animals/list`                    | Private route. Render the `animals` view.                  |                                                          |
+| `GET`      | `/animals:id/details`              | Private route. Render the `details` view.                  |                                                          |
+| `POST`     | `/adoption-post/create`             | Private route. Adds a animal do the DB.                    | { name, age, color, imageUrl, species, breed}                                 |
+| `GET`   | `/animal:id/edit-details`              | Private route. Renders edit-details form view. |                                                          |
+| `PUT`   | `/animal:id/edit-details`              | Private route. Sends edit-details info to server and updates animals in DB. |  
+| `DELETE`      | `/animals:id/details`            | Private route. Deletes the existing adoption post                              |                                                          |
+
 
 ## Models
 
