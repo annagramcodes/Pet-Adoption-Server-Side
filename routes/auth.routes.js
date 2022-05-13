@@ -15,7 +15,7 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/signup", isLoggedOut, (req, res) => {
-  res.render("/signup");
+  res.render("auth/signup");
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
@@ -60,7 +60,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
     if (found) {
       return res
         .status(400)
-        .render("/signup", { errorMessage: "Email is already being used" });
+        .render("auth/signup", { errorMessage: "Email is already being used" });
     }
 
     // if user is not found, create a new user - start with hashing the password
@@ -83,7 +83,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         if (error instanceof mongoose.Error.ValidationError) {
           return res
             .status(400)
-            .render("/signup", { errorMessage: error.message });
+            .render("auth/signup", { errorMessage: error.message });
         }
         if (error.code === 11000) {
           return res.status(400).render("auth/signup", {
@@ -93,13 +93,13 @@ router.post("/signup", isLoggedOut, (req, res) => {
         }
         return res
           .status(500)
-          .render("/signup", { errorMessage: error.message });
+          .render("auth/signup", { errorMessage: error.message });
       });
   });
 });
 
 router.get("/login", isLoggedOut, (req, res) => {
-  res.render("/login");
+  res.render("auth/login");
 });
 
 router.post("/login", isLoggedOut, (req, res, next) => {

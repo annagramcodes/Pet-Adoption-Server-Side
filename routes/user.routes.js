@@ -1,10 +1,10 @@
 const router = require("express").Router();
 
-const res = require("express/lib/response");
+const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
 
-router.get("/profile", (req, res, next) => {
-  User.findById(id).then((user) => res.render("profile"), user);
+router.get("/profile", isLoggedIn, (req, res, next) => {
+  res.render("profile", { user: req.session.user });
 });
 
 /* router.get("/:id/edit", (req, res, next) => {
