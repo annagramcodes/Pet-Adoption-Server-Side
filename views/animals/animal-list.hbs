@@ -1,11 +1,16 @@
-<div>
-  {{#each animal}}
-    <h1>These {{species}}s are looking for new homes</h1>
-
-    <div class="row">
-      <div class="card">
-        <h5 class="card-title"> Name: {{name}}</h5>
+<main class="container">
+  <h1 class="list-header">These
+    {{animal.0.species}}s are looking for new homes!</h1>
+  <div class="row list-grid">
+    {{#each animal}}
+      <div class="animal-card">
+        <img
+          class="animal-img"
+          src="{{imageUrl}}"
+          alt="Photo of a {{species}}"
+        />
+        <h5 class="animal-name">{{name}}</h5>
       </div>
-    </div>
-  {{/each}}
-</div>
+    {{/each}}
+  </div>
+</main>

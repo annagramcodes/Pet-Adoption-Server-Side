@@ -1,6 +1,35 @@
+* {
+  box-sizing: border-box;
+  color: var(--green900);
+}
+
+:root {
+  --lila500: #6b515a;
+  --green100: #b6c9bd;
+  --green300: #91b59e;
+  --green500: #5d7e69;
+  --green700: #36493d;
+  -green900: #151c17;
+  --yellow100: #fcf5e9;
+  --yellow200: #f7e7cb;
+  --yellow300: #f7dbab;
+  --yellow500: #edc683;
+  --yellow900: #1f1a11;
+  --beige100: #fffbf2;
+  --beige200: #faf1e1;
+  --beige300: #ded5c4;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: var(--beige100);
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Nunito", sans-serif;
 }
 
 a {
@@ -9,4 +38,61 @@ a {
 
 h1 {
   color: 15px;
+}
+
+/*////////////////* HERO */
+
+.green-300 {
+  background-color: var(--green300);
+}
+
+.nav-link {
+  color: var(--beige100);
+}
+.nav-link:hover {
+  color: #36493d;
+}
+
+.nav-link-border {
+  border-left: 1px solid var(--yellow100);
+}
+
+.text-container {
+  text-align: center;
+}
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: linear-gradient(rgba(3, 3, 3, 0.5), rgba(3, 3, 3, 0.5)),
+    url("../images/humberto-arellano-N_G2Sqdy9QY-unsplash.jpg");
+  background-size: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.hero-title {
+  font-size: 5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: var(--beige200);
+}
+.hero-subtitle {
+  color: var(--beige200);
+  font-size: 1.3rem;
+}
+
+.btn-container {
+  margin-top: 3rem;
+}
+.btn-adopt {
+  background-color: var(--yellow500);
+  margin-right: 2rem;
+  font-size: 1.2rem;
+}
+
+.btn-create {
+  background-color: var(--yellow200);
+  color: var(--yellow900);
+  font-size: 1.2rem;
 }
