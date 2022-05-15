@@ -4,8 +4,9 @@
 }
 
 :root {
+  --lila300: #997481;
   --lila500: #6b515a;
-  --green100: #b6c9bd;
+  --green400: #839e8d;
   --green300: #91b59e;
   --green500: #5d7e69;
   --green700: #36493d;
@@ -44,7 +45,7 @@ h1 {
 /*////////////////* HERO */
 
 .green-300 {
-  background-color: var(--green300);
+  background-color: var(--green400);
 }
 
 .nav-link {
