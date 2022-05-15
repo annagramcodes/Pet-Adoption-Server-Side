@@ -14,6 +14,7 @@
   --yellow200: #f7e7cb;
   --yellow300: #f7dbab;
   --yellow500: #edc683;
+  --yellow700: #e3b464;
   --yellow900: #1f1a11;
   --beige100: #fffbf2;
   --beige200: #faf1e1;
@@ -86,13 +87,25 @@ h1 {
   margin-top: 3rem;
 }
 .btn-adopt {
+  min-width: 20ch;
   background-color: var(--yellow500);
+  color: var(--yellow900);
   margin-right: 2rem;
   font-size: 1.2rem;
+  border: 1px solid var(--yellow500);
 }
 
 .btn-create {
-  background-color: var(--yellow200);
-  color: var(--yellow900);
+  min-width: 20ch;
+  background-color: transparent;
+  color: var(--yellow100);
   font-size: 1.2rem;
+  border: 1px solid var(--yellow500);
+}
+
+.btn-adopt:hover,
+.btn-create:hover {
+  background-color: var(--yellow700);
+  color: var(--yellow100);
+  border: 1px solid var(--yellow700);
 }
