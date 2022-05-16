@@ -23,13 +23,13 @@ const userSchema = new Schema({
     /* required: Number, */
     unique: true,
   },
-  address: [
-    {
-      type: String,
-      /* required: true, */
-    },
-    { zipcode: String, required: true },
-  ],
+  address: {
+    type: String,
+    /* required: true, */
+  },
+  /*  zipcode: {
+    type: 
+  } */
   birthdate: {
     type: String, // ???
     /* required: true, */
