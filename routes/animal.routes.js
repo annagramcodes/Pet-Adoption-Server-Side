@@ -5,6 +5,26 @@ const mongoose = require("mongoose");
 const fileUploader = require("../config/cloudinary.config");
 const res = require("express/lib/response");
 
+
+//////////////////////////////////////////
+// RENDERING THE LIST OF ADOPTION POSTS //
+router.get("/animals-for-adoption/cats", (req, res, next) => {
+  Animal.find({ species: "cat" })
+    .then((animal) => {
+      res.render("animals/animal-list.hbs", { animal });
+    })
+    .catch((err) => next(err));
+});
+
+router.get("/animals-for-adoption/dogs", (req, res, next) => {
+  Animal.find({ species: "dog" })
+    .then((animal) => {
+      console.log(animal);
+      res.render("animals/animal-list.hbs", { animal });
+    })
+    .catch((err) => next(err));
+});
+
 /////////////////////////////
 // CREATING ADOPTION POSTS //
 router.get("/adoption-post/create", (req, res, next) => {
@@ -91,23 +111,5 @@ router.get("/adoption-post/:id", (req, res, next) => {
   });
 });
 
-//////////////////////////////////////////
-// RENDERING THE LIST OF ADOPTION POSTS //
-router.get("/animals-for-adoption/cats", (req, res, next) => {
-  Animal.find({ species: "cat" })
-    .then((animal) => {
-      res.render("animals/animal-list.hbs", { animal });
-    })
-    .catch((err) => next(err));
-});
-
-router.get("/animals-for-adoption/dogs", (req, res, next) => {
-  Animal.find({ species: "dog" })
-    .then((animal) => {
-      console.log(animal);
-      res.render("animals/animal-list.hbs", { animal });
-    })
-    .catch((err) => next(err));
-});
 
 module.exports = router;
