@@ -1,5 +1,12 @@
 <h1>Profile</h1>
-
-<p>{{user.email}}</p>
-
+<img src="{{user.imgUrl}}" alt="" />
+<h6>{{user.name}}</h6>
+<div>
+  <h5>Contact:
+    <h6>{{user.email}}</h6>
+    <h6>{{user.phonenumber}}</h6>
+  </h5>
+</div>
+<h6>{{user.address}}</h6>
+<h6></h6>
 <a href="/{{user._id}}/edit">Edit</a>

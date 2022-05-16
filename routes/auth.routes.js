@@ -24,8 +24,7 @@ router.post(
   isLoggedOut,
   fileUploader.single("user-img"),
   (req, res) => {
-    const { name, email, password, phonenumber, address, birthdate, imgUrl } =
-      req.body;
+    const { name, email, password, phonenumber, address, birthdate } = req.body;
 
     if (!email) {
       return res.status(400).render("auth/signup", {
@@ -59,7 +58,12 @@ router.post(
           errorMessage: "Email is already being used",
         });
       }
-
+      let imgUrl;
+      if (req.file) {
+        imgUrl = req.file.path;
+      } else {
+        imgUrl = "";
+      }
       // if user is not found, create a new user - start with hashing the password
       return bcrypt
         .genSalt(saltRounds)

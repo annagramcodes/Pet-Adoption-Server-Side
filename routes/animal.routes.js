@@ -77,7 +77,7 @@ router.post("/adoption-post/:id/delete", (req, res, next) => {
   const { id } = req.params;
 
   Animal.findByIdAndRemove(id)
-    .then(() => res.redirect('/'))
+    .then(() => res.redirect("/"))
     .catch((err) => next(err));
 });
 

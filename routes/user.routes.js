@@ -16,8 +16,7 @@ router.get("/:id/edit", (req, res, next) => {
 
 router.post("/:id/edit", fileUploader.single("user-img"), (req, res, next) => {
   const { id } = req.params;
-  const { name, email, password, phonenumber, address, birthdate, imgUrl } =
-    req.body;
+  const { name, email, password, phonenumber, address, birthdate } = req.body;
 
   if (req.file) {
     User.findByIdAndUpdate(id, {
