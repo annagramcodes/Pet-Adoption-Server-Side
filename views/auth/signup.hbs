@@ -1,26 +1,26 @@
-<form action="/signup" method="POST" enctype="multipart/form-data">
+<form action="/signup" method="POST">
   <label for="text">
     Name:
-    <input type="text" name="name" />
   </label>
+  <input type="text" name="name" />
   <label>
     Email:
-    <input type="text" name="email" />
   </label>
+  <input type="email" name="email" />
   <label>
     Password:
-    <input type="password" name="password" />
   </label>
+  <input type="password" name="password" />
   <label for="text">Address:
-    <input type="text" name="address" />
   </label>
+  <input type="text" name="address" />
   <label for="number">Phone number:
-    <input type="number" name="phonenumber" min="9" />
   </label>
+  <input type="number" name="phonenumber" min="9" />
   <label for="image">
     Image
-    <input type="file" name="user-img" />
   </label>
+  <input type="file" name="user-img" />
 
   <button type="submit">Submit</button>
 </form>

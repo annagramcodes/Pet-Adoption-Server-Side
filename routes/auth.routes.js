@@ -3,6 +3,7 @@ const router = require("express").Router();
 // ℹ️ Handles password encryption
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
+const fileUploader = require("../config/cloudinary.config");
 
 // How many rounds should bcrypt run the salt (default [10 - 12 rounds])
 const saltRounds = 10;
@@ -18,32 +19,28 @@ router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
 });
 
-router.post("/signup", isLoggedOut, (req, res) => {
-  const {
-    name,
-    email,
-    password,
-    phonenumber,
-    address,
-    birthdate,
-    imgUrl,
-    favorite,
-  } = req.body;
+router.post(
+  "/signup",
+  isLoggedOut,
+  fileUploader.single("user-img"),
+  (req, res) => {
+    const { name, email, password, phonenumber, address, birthdate, imgUrl } =
+      req.body;
 
-  if (!email) {
-    return res.status(400).render("auth/signup", {
-      errorMessage: "Please provide your email.",
-    });
-  }
+    if (!email) {
+      return res.status(400).render("auth/signup", {
+        errorMessage: "Please provide your email.",
+      });
+    }
 
-  if (password.length < 2) {
-    return res.status(400).render("auth/signup", {
-      errorMessage: "Your password needs to be at least 8 characters long.",
-    });
-  }
+    if (password.length < 2) {
+      return res.status(400).render("auth/signup", {
+        errorMessage: "Your password needs to be at least 8 characters long.",
+      });
+    }
 
-  //   ! This use case is using a regular expression to control for special characters and min length
-  /*
+    //   ! This use case is using a regular expression to control for special characters and min length
+    /*
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
   if (!regex.test(password)) {
@@ -54,49 +51,55 @@ router.post("/signup", isLoggedOut, (req, res) => {
   }
   */
 
-  // Search the database for a user with the email submitted in the form
-  User.findOne({ email }).then((found) => {
-    // If the user is found, send the message email is taken
-    if (found) {
-      return res
-        .status(400)
-        .render("auth/signup", { errorMessage: "Email is already being used" });
-    }
-
-    // if user is not found, create a new user - start with hashing the password
-    return bcrypt
-      .genSalt(saltRounds)
-      .then((salt) => bcrypt.hash(password, salt))
-      .then((hashedPassword) => {
-        // Create a user and save it in the database
-        return User.create({
-          email,
-          password: hashedPassword,
+    // Search the database for a user with the email submitted in the form
+    User.findOne({ email }).then((found) => {
+      // If the user is found, send the message email is taken
+      if (found) {
+        return res.status(400).render("auth/signup", {
+          errorMessage: "Email is already being used",
         });
-      })
-      .then((user) => {
-        // Bind the user to the session object
-        req.session.user = user;
-        res.redirect("/");
-      })
-      .catch((error) => {
-        if (error instanceof mongoose.Error.ValidationError) {
-          return res
-            .status(400)
-            .render("auth/signup", { errorMessage: error.message });
-        }
-        if (error.code === 11000) {
-          return res.status(400).render("auth/signup", {
-            errorMessage:
-              "Email need to be unique. The email you chose is already in use.",
+      }
+
+      // if user is not found, create a new user - start with hashing the password
+      return bcrypt
+        .genSalt(saltRounds)
+        .then((salt) => bcrypt.hash(password, salt))
+        .then((hashedPassword) => {
+          // Create a user and save it in the database
+          return User.create({
+            name,
+            email,
+            password: hashedPassword,
+            phonenumber,
+            address,
+            birthdate,
+            imgUrl,
           });
-        }
-        return res
-          .status(500)
-          .render("auth/signup", { errorMessage: error.message });
-      });
-  });
-});
+        })
+        .then((user) => {
+          // Bind the user to the session object
+          req.session.user = user;
+          res.redirect("/");
+        })
+        .catch((error) => {
+          if (error instanceof mongoose.Error.ValidationError) {
+            return res
+              .status(400)
+              .render("auth/signup", { errorMessage: error.message });
+          }
+          if (error.code === 11000) {
+            return res.status(400).render("auth/signup", {
+              errorMessage:
+                "Email need to be unique. The email you chose is already in use.",
+            });
+          }
+          return res
+            .status(500)
+            .render("auth/signup", { errorMessage: error.message });
+        });
+    });
+  }
+);
 
 router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login");
