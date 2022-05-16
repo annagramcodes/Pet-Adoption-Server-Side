@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const Animal = require("../models/Animal.model");
 const mongoose = require("mongoose");
+const User = require("../models/User.model");
 
 const fileUploader = require("../config/cloudinary.config");
 const res = require("express/lib/response");
-
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 //////////////////////////////////////////
 // RENDERING THE LIST OF ADOPTION POSTS //
@@ -27,8 +28,12 @@ router.get("/animals-for-adoption/dogs", (req, res, next) => {
 
 /////////////////////////////
 // CREATING ADOPTION POSTS //
-router.get("/adoption-post/create", (req, res, next) => {
-  res.render("animals/create-adoption-post.hbs");
+router.get("/adoption-post/create", isLoggedIn, (req, res, next) => {
+  if (isLoggedIn) {
+    res.render("animals/create-adoption-post.hbs");
+  } else {
+    res.redirect("/login");
+  }
 });
 
 router.post(
@@ -110,6 +115,5 @@ router.get("/adoption-post/:id", (req, res, next) => {
     res.render("animals/animal-details", { animal });
   });
 });
-
 
 module.exports = router;
