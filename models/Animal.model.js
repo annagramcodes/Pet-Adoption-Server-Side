@@ -8,10 +8,13 @@ const animalSchema = new Schema({
       type: String,
       required: [true],
       lowercase: true,
-    },
+  },
+  character: String,
+    info: String,
     breed: String,
     imageUrl: {
-        type: String,
+      type: String,
+      required: [true]
         // default:
         //   'https://res.cloudinary.com/mraferreira/image/upload/v1652347918/movie-project/mvc_67565_urfvwr.jpg',
       },

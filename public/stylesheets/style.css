@@ -113,3 +113,9 @@ h1 {
   border: 1px solid var(--yellow700);
   box-shadow: none;
 }
+
+.img-adoption-post {
+  width: 500px;
+  max-height: 400px;
+  object-fit: fill;
+}

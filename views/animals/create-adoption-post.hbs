@@ -1,3 +1,4 @@
+<div class="container">
 <div class="row">
   <div class="col sm-6">
     <form
@@ -13,6 +14,7 @@
           class="form-control"
           id="name"
           placeholder="Hugo"
+          required
         />
       </div>
       <div class="form-group">
@@ -23,8 +25,19 @@
           class="form-control"
           id="age"
           placeholder="1"
+          required
         />
       </div>
+            <div class="form-group">
+        <label for="character">Character:</label>
+        <input
+          type="text"
+          name="character"
+          class="form-control"
+          id="character"
+          placeholder="Cheerful"
+        
+        />
       <div class="form-group">
         <label for="color">Color</label>
         <input
@@ -33,6 +46,7 @@
           class="form-control"
           id="color"
           placeholder="Grey"
+          required
         />
       </div>
       <div class="form-group">
@@ -43,6 +57,7 @@
           class="form-control"
           id="breed"
           placeholder="f.e. Persian, Pug etc. "
+          required
         />
       </div>
       <div class="form-group">
@@ -53,14 +68,28 @@
           class="form-control"
           id="species"
           placeholder="Cat or Dog"
+          required
         />
+        <div class="form-group">
+          <label for="info">About: </label>
+          <textarea
+            name="character"
+            class="form-control"
+            id="character"
+            rows="5"
+            cols="33"
+            placeholder="More Info about the animal"
+            required
+          ></textarea>
+        </div>
       </div>
       <div class="form-group">
         <label>Image:
-          <input type="file" name="animal-img" class="form-control-file" />
+          <input type="file" name="animal-img" class="form-control-file" required/>
         </label>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
+</div>
 </div>

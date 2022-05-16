@@ -1,7 +1,17 @@
 {{! things that will be displayed at some point }}
 <div>
-  <p class="card-text">age: {{animal.age}}</p>
+  <p class="card-text">Name: {{animal.name}}</p>
+  <p class="card-text">Age: {{animal.age}}</p>
   <p class="card-text">Color: {{animal.color}}</p>
   <p class="card-text">Breed: {{animal.breed}}</p>
-  <img src="{{animal.imageUrl}}" alt="Photo of a {{animal.species}}" />
+  <p class="card-text">Character: {{animal.character}}</p>
+  <p class="card-text">Info: {{animal.info}}</p>
+  <div>
+    <img
+      src="{{animal.imageUrl}}"
+      alt="Photo of a {{animal.species}}"
+      class="img-adoption-post"
+    />
+  </div>
+  <a href="/adoption-post/{{animal._id}}/edit">Edit</a>
 </div>

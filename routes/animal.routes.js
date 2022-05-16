@@ -13,9 +13,9 @@ router.post(
   "/adoption-post/create",
   fileUploader.single("animal-img"),
   (req, res, next) => {
-    const { name, age, color, species, breed, imageUrl } = req.body;
+    const { name, age, color, species, breed, character, info, imageUrl } = req.body;
 
-    Animal.create({ name, age, color, species, breed, imageUrl: req.file.path })
+    Animal.create({ name, age, color, species, breed, character, info, imageUrl: req.file.path })
       .then((animal) => {
         res.redirect(`/adoption-post/${animal._id}`);
       })
@@ -33,6 +33,32 @@ router.get("/adoption-post/:id", (req, res, next) => {
     }
   );
 });
+
+////////////////////////////////
+// EDITING ADOPTION POSTS ////
+
+router.get("/adoption-post/:id/edit", (req, res, next) => {
+  const { id } = req.params;
+  Animal.findById(id).then((animal) => {
+    res.render('animals/edit-adoption-post', animal)
+  })
+  .catch((err) => next(err));
+})
+
+router.post(
+  "/adoption-post/:id/edit",
+  fileUploader.single("animal-img"),
+  (req, res, next) => {
+    const { id } = req.params;
+    const { name, age, color, species, breed, character, info, imageUrl } = req.body;
+
+    Animal.findByIdAndUpdate(id,{ name, age, color, species, breed, character, info, imageUrl: req.file.path })
+      .then((animal) => {
+        res.redirect(`/adoption-post/${animal._id}`);
+      })
+      .catch((err) => next(err));
+  }
+);
 
 //////////////////////////////////////////
 // RENDERING THE LIST OF ADOPTION POSTS //
