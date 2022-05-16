@@ -60,6 +60,8 @@ router.post(
   }
 );
 
+router.get('/adoption-post/{{animal._id}}/delete')
+
 //////////////////////////////////////////
 // RENDERING THE LIST OF ADOPTION POSTS //
 
