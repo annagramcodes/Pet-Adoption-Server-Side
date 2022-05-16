@@ -6,8 +6,10 @@
 :root {
   --lila300: #997481;
   --lila500: #6b515a;
-  --green400: #839e8d;
+
+  --green200: #b6c9bd;
   --green300: #91b59e;
+  --green400: #839e8d;
   --green500: #5d7e69;
   --green700: #36493d;
   -green900: #151c17;
@@ -109,4 +111,5 @@ h1 {
   background-color: var(--yellow700);
   color: var(--yellow100);
   border: 1px solid var(--yellow700);
+  box-shadow: none;
 }
