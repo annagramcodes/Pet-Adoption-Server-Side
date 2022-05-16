@@ -52,4 +52,12 @@ router.get("/profile/:id", (req, res, next) => {
   });
 });
 
+router.post("/:id/delete", (req, res, next) => {
+  const { id } = req.params;
+  req.session.destroy();
+  User.findByIdAndRemove(id)
+    .then(() => res.redirect("/"))
+    .catch((err) => next(err));
+});
+
 module.exports = router;
