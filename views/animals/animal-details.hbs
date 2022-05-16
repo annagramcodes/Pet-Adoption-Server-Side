@@ -3,6 +3,7 @@
   <p class="card-text">Age: {{animal.age}}</p>
   <p class="card-text">Color: {{animal.color}}</p>
   <p class="card-text">Breed: {{animal.breed}}</p>
+  <p class="card-text">Species: {{animal.species}}</p>
   <p class="card-text">Character: {{animal.character}}</p>
   <p class="card-text">Info: {{animal.info}}</p>
   <div>
@@ -12,6 +13,8 @@
       class="img-adoption-post"
     />
   </div>
-  <a href="/adoption-post/{{animal._id}}/edit">Edit</a>
-  <a href="/adoption-post/{{animal._id}}/delete">Delete Adoption</a>
+  <a class="btn" href="/adoption-post/{{animal._id}}/edit">Edit</a>
+  <form action="/adoption-post/{{animal._id}}/delete" method="POST">
+    <button class="btn">Delete</button>
+  </form>
 </div>
