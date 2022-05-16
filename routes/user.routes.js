@@ -17,6 +17,7 @@ router.get("/:id/edit", (req, res, next) => {
 router.post("/:id/edit", fileUploader.single("user-img"), (req, res, next) => {
   const { id } = req.params;
   const { name, email, password, phonenumber, address, birthdate } = req.body;
+  console.log({ name });
 
   if (req.file) {
     User.findByIdAndUpdate(id, {
@@ -28,7 +29,7 @@ router.post("/:id/edit", fileUploader.single("user-img"), (req, res, next) => {
       birthdate,
       imgUrl: req.file.path,
     })
-      .then(() => res.redirect("/profile"))
+      .then((user) => res.redirect(`/profile/${user._id}`))
       .catch((err) => next(err));
   } else {
     User.findByIdAndUpdate(id, {
@@ -39,9 +40,16 @@ router.post("/:id/edit", fileUploader.single("user-img"), (req, res, next) => {
       address,
       birthdate,
     })
-      .then(() => res.redirect("/profile"))
+      .then((user) => res.redirect(`/profile/${user._id}`))
       .catch((err) => next(err));
   }
+});
+router.get("/profile/:id", (req, res, next) => {
+  const { id } = req.params;
+
+  User.findById(id).then((user) => {
+    res.render("profiles/profile", { user });
+  });
 });
 
 module.exports = router;
