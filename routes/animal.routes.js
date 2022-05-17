@@ -11,6 +11,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 // RENDERING THE LIST OF ADOPTION POSTS //
 router.get("/animals-for-adoption/cats", (req, res, next) => {
   Animal.find({ species: "cat" })
+    .populate("owner")
     .then((animal) => {
       res.render("animals/animal-list.hbs", { animal });
     })
@@ -19,8 +20,10 @@ router.get("/animals-for-adoption/cats", (req, res, next) => {
 
 router.get("/animals-for-adoption/dogs", (req, res, next) => {
   Animal.find({ species: "dog" })
+    .populate("owner")
     .then((animal) => {
       res.render("animals/animal-list.hbs", { animal });
+      console.log(animal);
     })
     .catch((err) => next(err));
 });
@@ -141,7 +144,7 @@ router.post("/adoption-post/:id/favorite", isLoggedIn, (req, res, next) => {
   const { id } = req.params;
   if (req.session.user) {
     Animal.findByIdAndUpdate(id, {
-      $push: { favoritedBy: req.session.user._id }
+      $push: { favoritedBy: req.session.user._id },
     }).then((animal) => {
       return User.findByIdAndUpdate(req.session.user._id, {
         $addToSet: { favorite: animal._id },
@@ -160,7 +163,7 @@ router.post("/adoption-post/:id/remove-favorite", (req, res, next) => {
   const { id } = req.params;
 
   Animal.findByIdAndUpdate(id, {
-    $pull: { favoritedBy: req.session.user._id }
+    $pull: { favoritedBy: req.session.user._id },
   }).then((animal) => {
     return User.findByIdAndUpdate(req.session.user._id, {
       $pull: { favorite: animal._id },

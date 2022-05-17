@@ -19,7 +19,7 @@
       <button class="btn">Delete</button>
     </form>
   {{/if_eq}}
-  
+
   {{#if_neq animal.favoritedBy userId}}
     <form action="/adoption-post/{{animal._id}}/favorite" method="POST">
       <button class="btn">HEART ME</button>
@@ -31,5 +31,11 @@
       <button class="btn">Remove from favorites</button>
     </form>
   {{/if_eq}}
+
+  <hr />
+  {{#each animal.owner}}
+    <p>{{name}}</p>
+  {{/each}}
+  <p>asda</p>
 
 </div>
