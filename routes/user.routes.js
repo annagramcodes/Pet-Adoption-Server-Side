@@ -2,6 +2,8 @@ const router = require("express").Router();
 const fileUploader = require("../config/cloudinary.config");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
+const Animal = require("../models/Animal.model");
+const { findByIdAndRemove } = require("../models/User.model");
 
 router.get("/profile", isLoggedIn, (req, res, next) => {
   res.render("profiles/profile", { user: req.session.user });
@@ -54,9 +56,17 @@ router.get("/profile/:id", (req, res, next) => {
 
 router.post("/:id/delete", (req, res, next) => {
   const { id } = req.params;
-  req.session.destroy();
+  User.findById(id).then((user) => {
+    const post = user.adoptionPost;
+    post.forEach((post) => {
+      Animal.findByIdAndRemove(post).then(() => console.log("deleted"));
+    });
+  });
   User.findByIdAndRemove(id)
-    .then(() => res.redirect("/"))
+    .then(() => {
+      req.session.destroy();
+      res.redirect("/");
+    })
     .catch((err) => next(err));
 });
 

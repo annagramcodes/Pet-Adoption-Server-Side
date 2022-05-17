@@ -73,10 +73,9 @@ router.post(
           },
           { new: true }
         ).then((updatedUser) => {
-          console.log("here", updatedUser);
-          res.redirect(`/`);
+          let i = updatedUser.adoptionPost.length - 1;
+          res.redirect(`/adoption-post/${updatedUser.adoptionPost[i]}`);
         });
-        // res.redirect(`/adoption-post/${animal._id}`);
       })
       .catch((err) => next(err));
   }
@@ -143,14 +142,31 @@ module.exports = router;
 /////////////////////////////
 // FAVORITING AN ANIMAL ////
 
-router.post("/adoption-post/:id/favorite", (req, res, next) => {
+router.post("/adoption-post/:id/favorite", isLoggedIn, (req, res, next) => {
+  const { id } = req.params;
+  if (isLoggedIn) {
+    Animal.findById(id).then((animal) => {
+      return User.findByIdAndUpdate(req.session.user._id, {
+        $push: { favorite: animal._id },
+      })
+        .then(() => res.redirect("back"))
+        .catch((err) => next(err));
+    });
+  } else {
+    res.redirect("/login");
+  }
+});
+
+/////////////////////////////
+// REMOVING FAVORITES  /////
+router.post("/adoption-post/:id/remove-favorite", (req, res, next) => {
   const { id } = req.params;
 
   Animal.findById(id).then((animal) => {
-    User.findByIdAndUpdate(req.session.user._id, {
-      $push: { favorite: animal._id },
+    return User.findByIdAndUpdate(req.session.user._id, {
+      $pull: { favorite: animal._id },
     })
-      .then(res.redirect("/"))
+      .then((user) => res.redirect("back"))
       .catch((err) => next(err));
   });
 });
