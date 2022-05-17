@@ -64,7 +64,6 @@ router.post(
       imageUrl: req.file.path,
     })
       .then((animal) => {
-        console.log("animal", animal);
         return User.findByIdAndUpdate(
           req.session.user._id,
           {
@@ -130,23 +129,21 @@ router.post("/adoption-post/:id/delete", (req, res, next) => {
 // VIEWING ADOPTION POST ///
 router.get("/adoption-post/:id", (req, res, next) => {
   const { id } = req.params;
-
+  const userId = req.session.user._id;
   Animal.findById(id).then((animal) => {
-    res.render("animals/animal-details", { animal });
+
+    res.render("animals/animal-details", { animal, userId });
   });
 });
 
-module.exports = router;
-
 /////////////////////////////
 // FAVORITING AN ANIMAL ////
-
 router.post("/adoption-post/:id/favorite", isLoggedIn, (req, res, next) => {
   const { id } = req.params;
-  if (isLoggedIn) {
+  if (req.session.user) {
     Animal.findById(id).then((animal) => {
       return User.findByIdAndUpdate(req.session.user._id, {
-        $push: { favorite: animal._id },
+        $addToSet: { favorite: animal._id },
       })
         .then(() => res.redirect("back"))
         .catch((err) => next(err));
@@ -165,7 +162,7 @@ router.post("/adoption-post/:id/remove-favorite", (req, res, next) => {
     return User.findByIdAndUpdate(req.session.user._id, {
       $pull: { favorite: animal._id },
     })
-      .then((user) => res.redirect("back"))
+      .then(() => res.redirect("back"))
       .catch((err) => next(err));
   });
 });

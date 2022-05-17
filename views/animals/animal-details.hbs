@@ -13,10 +13,12 @@
       class="img-adoption-post"
     />
   </div>
-  <a class="btn" href="/adoption-post/{{animal._id}}/edit">Edit</a>
-  <form action="/adoption-post/{{animal._id}}/delete" method="POST">
-    <button class="btn">Delete</button>
-  </form>
+  {{#if_eq animal.owner userId}}
+    <a class="btn" href="/adoption-post/{{animal._id}}/edit">Edit</a>
+    <form action="/adoption-post/{{animal._id}}/delete" method="POST">
+      <button class="btn">Delete</button>
+    </form>
+  {{/if_eq}}
 
   <form action="/adoption-post/{{animal._id}}/favorite" method="POST">
     <button class="btn">HEART ME</button>
