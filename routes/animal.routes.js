@@ -131,9 +131,9 @@ router.post("/adoption-post/:id/delete", (req, res, next) => {
 router.get("/adoption-post/:id", (req, res, next) => {
   const { id } = req.params;
   const userId = req.session.user._id;
-  const postOwnedByUser
   Animal.findById(id).then((animal) => {
-    res.render("animals/animal-details", { animal }, { postOwnedByUser });
+
+    res.render("animals/animal-details", { animal, userId });
   });
 });
 
@@ -141,7 +141,7 @@ router.get("/adoption-post/:id", (req, res, next) => {
 // FAVORITING AN ANIMAL ////
 router.post("/adoption-post/:id/favorite", isLoggedIn, (req, res, next) => {
   const { id } = req.params;
-  if (isLoggedIn) {
+  if (req.session.user) {
     Animal.findById(id).then((animal) => {
       return User.findByIdAndUpdate(req.session.user._id, {
         $addToSet: { favorite: animal._id },
