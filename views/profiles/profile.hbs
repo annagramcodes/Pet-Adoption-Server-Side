@@ -8,5 +8,10 @@
   </h5>
 </div>
 <h6>{{user.address}}</h6>
-<h6></h6>
+<hr />
+{{#each user.adoptionPost}}
+  <p>{{name}}</p>
+  <p>{{species}}</p>
+  <hr />
+{{/each}}
 <a href="/{{user._id}}/edit">Edit</a>

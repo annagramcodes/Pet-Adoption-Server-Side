@@ -6,7 +6,12 @@ const Animal = require("../models/Animal.model");
 const { findByIdAndRemove } = require("../models/User.model");
 
 router.get("/profile", isLoggedIn, (req, res, next) => {
-  res.render("profiles/profile", { user: req.session.user });
+  User.findById(req.session.user._id)
+    .populate("adoptionPost")
+    .then((user) => {
+      console.log(user);
+      res.render("profiles/profile", { user });
+    });
 });
 
 router.get("/:id/edit", (req, res, next) => {
@@ -46,15 +51,16 @@ router.post("/:id/edit", fileUploader.single("user-img"), (req, res, next) => {
       .catch((err) => next(err));
   }
 });
-router.get("/profile/:id", (req, res, next) => {
+/* router.get("/profile/:id", (req, res, next) => {
   const { id } = req.params;
-
+  console.log("user profile loading");
   User.findById(id)
     .populate("adoptionPost")
     .then((user) => {
+      console.log({ user });
       res.render("profiles/profile", { user });
     });
-});
+}); */
 
 router.post("/:id/delete", (req, res, next) => {
   const { id } = req.params;
