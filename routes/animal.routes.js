@@ -126,7 +126,7 @@ module.exports = router;
 /////////////////////////////
 // FAVORITING AN ANIMAL ////
 
-router.post("/adoption-post/:id/favorite", (req, res, next) => {
+router.post("/adoption-post/:id/favorite", sy(req, res, next) => {
   const { id, favoritedBy } = req.params;
 
   Animal.findById(id).then((animal) => {
