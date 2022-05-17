@@ -6,13 +6,12 @@
 :root {
   --lila300: #997481;
   --lila500: #6b515a;
-
   --green200: #b6c9bd;
   --green300: #91b59e;
   --green400: #839e8d;
   --green500: #5d7e69;
   --green700: #36493d;
-  -green900: #151c17;
+  --green900: #151c17;
   --yellow100: #fcf5e9;
   --yellow200: #f7e7cb;
   --yellow300: #f7dbab;
@@ -70,7 +69,7 @@ h1 {
   align-items: center;
   min-height: 90vh;
   background: linear-gradient(rgba(3, 3, 3, 0.5), rgba(3, 3, 3, 0.5)),
-    url("../images/humberto-arellano-N_G2Sqdy9QY-unsplash.jpg");
+    url("../images/krista-mangulsone-9gz3wfHr65U-unsplash.jpg");
   background-size: 100%;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -98,7 +97,7 @@ h1 {
   border: 1px solid var(--yellow500);
 }
 
-.btn-create {
+.btn-create-listing {
   min-width: 20ch;
   background-color: transparent;
   color: var(--yellow100);
@@ -119,6 +118,126 @@ h1 {
   max-height: 400px;
   object-fit: fill;
 }
+
+.divider-lila {
+  border-top: 2px solid var(--lila300);
+  width: 10vw;
+  margin-top: 6rem;
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  background-color: var(--beige100);
+}
+
+.about-content {
+  background-color: var(--green500);
+  padding: 4rem 5rem;
+  width: 50vw;
+  color: var(--beige100);
+  margin: 4rem 0 7rem 0;
+}
+
+.about-title,
+.adopt-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 2.2rem;
+}
+.about-title {
+  color: var(--beige100);
+}
+
+.about-text {
+  line-height: 1.8;
+  font-size: 1rem;
+  color: var(--beige100);
+}
+
+.btn-about {
+  max-width: 20ch;
+  background-color: transparent;
+  color: var(--beige100);
+  margin: 0 auto;
+  font-size: 1.2rem;
+  border: 1px solid var(--beige100);
+  display: block;
+}
+.btn-about:hover {
+  background-color: var(--beige100);
+  color: var(--green500);
+  border: 1px solid var(--beige100);
+}
+
+.divider-yellow {
+  border-top: 2px solid var(--yellow500);
+  width: 10vw;
+  padding-bottom: 1rem;
+}
+
+/* ADOPT  */
+
+.adopt {
+  padding: 7rem 0;
+  background-color: var(--green400);
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.adopt-content {
+  background-color: var(--beige100);
+  padding: 3rem;
+  max-width: 70vw;
+}
+
+.adopt-title {
+  font-size: 2.4rem;
+  color: var(--green700);
+  font-weight: 700;
+  text-align: center;
+}
+.img-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.grid-item {
+  width: 300px;
+  object-fit: contain;
+}
+
+.btn-container-adopt {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 3rem;
+}
+.btn-adopt-dogs,
+.btn-adopt-cats {
+  min-width: 20ch;
+  background-color: var(--yellow500);
+  color: var(--yellow900);
+  margin-right: 2rem;
+  font-size: 1.2rem;
+  border: 1px solid var(--yellow500);
+  margin: 0;
+  max-width: 20ch;
+}
+
+.btn-adopt-dogs {
+  background-color: var(--lila300);
+  border: 1px solid var(--lila300);
+  color: var(--beige100);
+}
+
+/* FORM SYTLING */
 .form-control:focus {
   border-color: var(--lila300);
   box-shadow: 0 0 0 0.1rem var(--green300);
