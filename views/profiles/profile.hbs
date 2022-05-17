@@ -1,5 +1,5 @@
 <h1>Profile</h1>
-<img src="{{user.imgUrl}}" alt="" />
+<img src="ghjklç}" alt="" />
 <h6>{{user.name}}</h6>
 <div>
   <h5>Contact:
@@ -9,9 +9,37 @@
 </div>
 <h6>{{user.address}}</h6>
 <hr />
-{{#each user.adoptionPost}}
-  <p>{{name}}</p>
-  <p>{{species}}</p>
-  <hr />
-{{/each}}
+<div>
+  {{#each user.adoptionPost}}
+    <img class="img-adoption-post" src="{{imageUrl}}" alt="Pet photo" />
+
+    <p>{{name}}</p>
+    <p>{{age}}</p>
+    <p>{{color}}</p>
+    <p>{{type}}</p>
+    <p>{{species}}</p>
+    <p>{{character}}</p>
+    <p>{{info}}</p>
+    <p>{{breed}}</p>
+    <hr />
+  {{/each}}
+</div>
+<div>
+  {{#each user.favorite}}
+    <img
+      class="img-adoption-post"
+      src="{{imageUrl}}"
+      alt="Favorite pet photo"
+    />
+    <p>{{name}}</p>
+    <p>{{age}}</p>
+    <p>{{color}}</p>
+    <p>{{type}}</p>
+    <p>{{species}}</p>
+    <p>{{character}}</p>
+    <p>{{info}}</p>
+    <p>{{breed}}</p>
+  {{/each}}
+
+</div>
 <a href="/{{user._id}}/edit">Edit</a>

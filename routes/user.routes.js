@@ -8,6 +8,7 @@ const { findByIdAndRemove } = require("../models/User.model");
 router.get("/profile", isLoggedIn, (req, res, next) => {
   User.findById(req.session.user._id)
     .populate("adoptionPost")
+    .populate("favorite")
     .then((user) => {
       console.log(user);
       res.render("profiles/profile", { user });
