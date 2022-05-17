@@ -14,10 +14,10 @@ const animalSchema = new Schema({
   breed: String,
   imageUrl: {
     type: String,
-    required: [true]
+    required: [true],
   },
-  favoritedBy: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-  owner: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+  favoritedBy: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  owner: { type: Schema.Types.ObjectId, ref: "User" },
 });
 
 const Animal = model("Animal", animalSchema);
