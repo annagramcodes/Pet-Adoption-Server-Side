@@ -19,12 +19,17 @@
       <button class="btn">Delete</button>
     </form>
   {{/if_eq}}
+  
+  {{#if_neq animal.favoritedBy userId}}
+    <form action="/adoption-post/{{animal._id}}/favorite" method="POST">
+      <button class="btn">HEART ME</button>
+    </form>
+  {{/if_neq}}
 
-  <form action="/adoption-post/{{animal._id}}/favorite" method="POST">
-    <button class="btn">HEART ME</button>
-  </form>
-  <form action="/adoption-post/{{animal._id}}/remove-favorite" method="POST">
-    <button class="btn">Remove from favorites</button>
-  </form>
+  {{#if_eq animal.favoritedBy userId}}
+    <form action="/adoption-post/{{animal._id}}/remove-favorite" method="POST">
+      <button class="btn">Remove from favorites</button>
+    </form>
+  {{/if_eq}}
 
 </div>
