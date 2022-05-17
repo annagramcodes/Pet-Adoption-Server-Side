@@ -38,8 +38,8 @@ const userSchema = new Schema({
     type: String,
     default: "",
   },
-  adoptionPost: [{ type: Schema.Types.ObjectId, ref: "Animal" }], //ask how this works
-  favorite: [{ type: Schema.Types.ObjectId, ref: "Animal" }], // ???
+  adoptionPost: [{ type: Schema.Types.ObjectId, ref: "Animal" }],
+  favorite: [{ type: Schema.Types.ObjectId, ref: "Animal" }],
 });
 
 const User = model("User", userSchema);
