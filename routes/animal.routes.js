@@ -40,7 +40,7 @@ router.post(
   "/adoption-post/create",
   fileUploader.single("animal-img"),
   (req, res, next) => {
-    const { name, age, color, species, breed, character, info, imageUrl } =
+    const { name, age, color, species, breed, character, info, owner, favoritedBy, imageUrl } =
       req.body;
 
     Animal.create({
@@ -51,9 +51,14 @@ router.post(
       breed,
       character,
       info,
+      owner,
+      favoritedBy,
       imageUrl: req.file.path,
     })
       .then((animal) => {
+        //  User.findByIdAndUpdate(owner, {
+        //   $push: { adoptionPost: animal._id },
+        // }).then(animal =>  res.redirect(`/adoption-post/${animal._id}`))
         res.redirect(`/adoption-post/${animal._id}`);
       })
       .catch((err) => next(err));
@@ -113,6 +118,24 @@ router.get("/adoption-post/:id", (req, res, next) => {
 
   Animal.findById(id).then((animal) => {
     res.render("animals/animal-details", { animal });
+  });
+});
+
+module.exports = router;
+
+/////////////////////////////
+// FAVORITING AN ANIMAL ////
+
+router.post("/adoption-post/:id/favorite", (req, res, next) => {
+  const { id, favoritedBy } = req.params;
+
+  Animal.findById(id).then((animal) => {
+     User.findByIdAndUpdate(favoritedBy, {
+      $push: { favorite: animal._id },
+    })
+      // .then(res.redirect('/'))
+      .catch((err) => next(err));
+        
   });
 });
 
