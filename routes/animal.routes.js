@@ -40,8 +40,17 @@ router.post(
   "/adoption-post/create",
   fileUploader.single("animal-img"),
   (req, res, next) => {
-    const { name, age, color, species, breed, character, info, owner, favoritedBy, imageUrl } =
-      req.body;
+    const {
+      name,
+      age,
+      color,
+      species,
+      breed,
+      character,
+      info,
+      favoritedBy,
+      imageUrl,
+    } = req.body;
 
     Animal.create({
       name,
@@ -51,15 +60,23 @@ router.post(
       breed,
       character,
       info,
-      owner,
+      owner: req.session.user._id,
       favoritedBy,
       imageUrl: req.file.path,
     })
       .then((animal) => {
-        //  User.findByIdAndUpdate(owner, {
-        //   $push: { adoptionPost: animal._id },
-        // }).then(animal =>  res.redirect(`/adoption-post/${animal._id}`))
-        res.redirect(`/adoption-post/${animal._id}`);
+        console.log("animal", animal);
+        return User.findByIdAndUpdate(
+          req.session.user._id,
+          {
+            $push: { adoptionPost: animal._id },
+          },
+          { new: true }
+        ).then((updatedUser) => {
+          console.log("here", updatedUser);
+          res.redirect(`/`);
+        });
+        // res.redirect(`/adoption-post/${animal._id}`);
       })
       .catch((err) => next(err));
   }
@@ -126,16 +143,15 @@ module.exports = router;
 /////////////////////////////
 // FAVORITING AN ANIMAL ////
 
-router.post("/adoption-post/:id/favorite", sy(req, res, next) => {
-  const { id, favoritedBy } = req.params;
+router.post("/adoption-post/:id/favorite", (req, res, next) => {
+  const { id } = req.params;
 
   Animal.findById(id).then((animal) => {
-     User.findByIdAndUpdate(favoritedBy, {
+    User.findByIdAndUpdate(req.session.user._id, {
       $push: { favorite: animal._id },
     })
-      // .then(res.redirect('/'))
+      .then(res.redirect("/"))
       .catch((err) => next(err));
-        
   });
 });
 
