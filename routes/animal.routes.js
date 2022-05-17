@@ -20,7 +20,6 @@ router.get("/animals-for-adoption/cats", (req, res, next) => {
 router.get("/animals-for-adoption/dogs", (req, res, next) => {
   Animal.find({ species: "dog" })
     .then((animal) => {
-      console.log(animal);
       res.render("animals/animal-list.hbs", { animal });
     })
     .catch((err) => next(err));

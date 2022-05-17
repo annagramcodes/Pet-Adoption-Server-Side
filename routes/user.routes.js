@@ -49,9 +49,11 @@ router.post("/:id/edit", fileUploader.single("user-img"), (req, res, next) => {
 router.get("/profile/:id", (req, res, next) => {
   const { id } = req.params;
 
-  User.findById(id).then((user) => {
-    res.render("profiles/profile", { user });
-  });
+  User.findById(id)
+    .populate("adoptionPost")
+    .then((user) => {
+      res.render("profiles/profile", { user });
+    });
 });
 
 router.post("/:id/delete", (req, res, next) => {
