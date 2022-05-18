@@ -98,29 +98,35 @@ router.post(
   fileUploader.single("animal-img"),
   (req, res, next) => {
     const { id } = req.params;
-    const {
-      name,
-      age,
-      color,
-      breed,
-      character,
-      info,
-      imageUrl,
-    } = req.body;
-
-    Animal.findByIdAndUpdate(id, {
-      name,
-      age,
-      color,
-      breed,
-      character,
-      info,
-      imageUrl: req.file.path,
-    })
-      .then((animal) => {
-        res.redirect(`/adoption-post/${animal._id}`);
+    const { name, age, color, breed, character, info, imageUrl } = req.body;
+    if (req.file) {
+      Animal.findByIdAndUpdate(id, {
+        name,
+        age,
+        color,
+        breed,
+        character,
+        info,
+        imageUrl: req.file.path,
       })
-      .catch((err) => next(err));
+        .then((animal) => {
+          res.redirect(`/adoption-post/${animal._id}`);
+        })
+        .catch((err) => next(err));
+    } else {
+      Animal.findByIdAndUpdate(id, {
+        name,
+        age,
+        color,
+        breed,
+        character,
+        info,
+      })
+        .then((animal) => {
+          res.redirect(`/adoption-post/${animal._id}`);
+        })
+        .catch((err) => next(err));
+    }
   }
 );
 
