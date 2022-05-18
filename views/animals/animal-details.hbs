@@ -23,7 +23,8 @@
                 action="/adoption-post/{{animal._id}}/favorite"
                 method="POST"
               >
-                <button class="btn btn-favorites">Add to favorites</button>
+                <button class="btn btn-favorites">Add to
+                  <span class="green-border">favorites</span></button>
               </form>
             {{/if_neq}}
 
@@ -44,6 +45,16 @@
         <h6 class="animal-about-title">About {{animal.name}}: </h6>
         <p class="animal-about-text">{{animal.info}}</p>
       </div>
+      {{#if_neq animal.owner._id userId}}
+        <div class="owner-contact-container">
+          <h6 class="owner-contact-title">Contact the owner: </h6>
+          <p class="owner-contact-text"><b>Name: </b>{{animal.owner.name}}</p>
+          <p class="owner-contact-text"><b>E-Mail:
+            </b>{{animal.owner.email}}</p>
+          <p class="owner-contact-text"><b>Phone-Number:
+            </b>{{animal.owner.phonenumber}}</p>
+        </div>
+      {{/if_neq}}
     </div>
   </div>
   {{#if_eq animal.owner._id userId}}
@@ -60,10 +71,4 @@
     </div>
   {{/if_eq}}
 
-  <div>
-
-    {{#each animal.owner}}
-      {{name}}
-    {{/each}}
-  </div>
 </div>

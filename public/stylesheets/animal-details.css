@@ -2,14 +2,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   margin-top: 5rem;
 }
 
 .wrapper-border {
   max-width: 55vw;
   box-shadow: var(--green300) 0px 0px 0px 1px;
-  padding: 1rem;
+  padding: 2rem;
+  margin-bottom: 4rem;
 }
 
 .animal-info-container {
@@ -19,7 +20,7 @@
 
 .info-title {
   margin-top: 1rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: var(--green700);
   margin-bottom: 1rem;
@@ -37,9 +38,7 @@
 h6.info-text {
   margin-bottom: 0.5rem;
 }
-.info-text:last-child {
-  margin-bottom: 2rem;
-}
+
 .img-details-post {
   max-width: 450px;
 }
@@ -49,19 +48,26 @@ h6.info-text {
 }
 
 .btn-favorites {
-  margin: 0;
-  padding: 0 0 0 0.5rem;
-  font-weight: 700;
-  color: var(--green500);
-}
-
-.animal-about-title {
+  margin: 1.8rem 0 0 0;
+  padding: 0 0.5rem;
   font-weight: 700;
   color: var(--green700);
 }
 
+.green-border {
+  border-bottom: 2px solid var(--green100);
+  color: var(--green700);
+}
+
+.animal-about-title,
+.owner-contact-title {
+  font-weight: 700;
+  color: var(--green700);
+  font-size: 1.3rem;
+}
+
 .animal-about-text {
-  max-width: 50vw;
+  max-width: 45vw;
 }
 
 .edit-delete-btn-container {
@@ -86,4 +92,13 @@ h6.info-text {
   color: var(--beige100);
   font-size: 1.2rem;
   border: 2px solid var(--lila500);
+}
+
+.owner-contact-container {
+  margin-top: 2rem;
+}
+
+.owner-contact-text {
+  padding: 0;
+  margin: 0.2rem;
 }
