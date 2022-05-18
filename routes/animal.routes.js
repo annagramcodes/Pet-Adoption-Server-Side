@@ -45,6 +45,7 @@ router.post(
       age,
       color,
       species,
+      gender,
       breed,
       character,
       info,
@@ -57,6 +58,7 @@ router.post(
       age,
       color,
       species,
+      gender,
       breed,
       character,
       info,
@@ -96,14 +98,24 @@ router.post(
   fileUploader.single("animal-img"),
   (req, res, next) => {
     const { id } = req.params;
-    const { name, age, color, species, breed, character, info, imageUrl } =
-      req.body;
+    const {
+      name,
+      age,
+      color,
+      species,
+      gender,
+      breed,
+      character,
+      info,
+      imageUrl,
+    } = req.body;
 
     Animal.findByIdAndUpdate(id, {
       name,
       age,
       color,
       species,
+      gender,
       breed,
       character,
       info,
