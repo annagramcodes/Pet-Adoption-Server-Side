@@ -43,7 +43,7 @@
         </div>
 
       </div>
-      <hr class="divider-yellow details-page" />
+      <hr class="divider-details details-page" />
       <div class="animal-about-container">
         <h6 class="animal-about-title">About {{animal.name}}: </h6>
         <p class="animal-about-text">{{animal.info}}</p>
@@ -58,20 +58,20 @@
             </b>{{animal.owner.phonenumber}}</p>
         </div>
       {{/if_neq}}
-    </div>
-    {{#if_eq animal.owner._id userId}}
-      <div class="edit-delete-btn-container">
-        <div>
-          <a
-            class="btn btn-sm btn-edit"
-            href="/adoption-post/{{animal._id}}/edit"
-          >Edit Listing</a>
+      {{#if_eq animal.owner._id userId}}
+        <div class="edit-delete-btn-container">
+          <div>
+            <a
+              class="btn btn-sm btn-edit"
+              href="/adoption-post/{{animal._id}}/edit"
+            >Edit Listing</a>
+          </div>
+          <form action="/adoption-post/{{animal._id}}/delete" method="POST">
+            <button class="btn btn-sm btn-delete">Delete Listing</button>
+          </form>
         </div>
-        <form action="/adoption-post/{{animal._id}}/delete" method="POST">
-          <button class="btn btn-delete">Delete Listing</button>
-        </form>
-      </div>
-    {{/if_eq}}
+      {{/if_eq}}
+    </div>
   </div>
 
 </div>

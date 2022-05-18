@@ -62,7 +62,7 @@ router.post(
       if (req.file) {
         imgUrl = req.file.path;
       } else {
-        imgUrl = "";
+        imgUrl = "https://res.cloudinary.com/dbjmfu4xr/image/upload/v1652906776/animal-adoption-project/undraw_woman_mevk_qdzvin.svg";
       }
       // if user is not found, create a new user - start with hashing the password
       return bcrypt

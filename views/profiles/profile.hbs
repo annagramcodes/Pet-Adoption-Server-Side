@@ -1,48 +1,57 @@
-<h1>Profile</h1>
-<div>
-  <img src="{{imgUrl}}" alt="" />
-  <h6>{{user.name}}</h6>
-  <div>
-    <h5>Contact:
-      <h6>{{user.email}}</h6>
-      <h6>{{user.phonenumber}}</h6>
-    </h5>
+<div class="container-profile">
+  {{!-- <h1 class="profile-title"> Profile</h1> --}}
+
+  <div class="profile-info">
+    <div class="img-container">
+      <img class="profile-img" src="{{user.imgUrl}}" alt="profile picture of the user" />
+    </div>
+    <div class="profile-info-text">
+      <p class="profile-text"><b>{{user.name}}</b></p>
+      <p class="profile-text"><b> Address:</b> {{user.address}}</p>
+      <p class="profile-text"><b>Phone Number:</b> {{user.phonenumber}}</p>
+      <a class="" href="/{{user._id}}/edit">Edit Profile</a>
+    </div>
   </div>
-  <h6>{{user.address}}</h6>
-  <a href="/{{user._id}}/edit">Edit</a>
-</div>
-
-<hr />
-<div>
-  {{#each user.adoptionPost}}
-    <img class="img-adoption-post" src="{{imageUrl}}" alt="Pet photo" />
-
-    <p>{{name}}</p>
-    <p>{{age}}</p>
-    <p>{{color}}</p>
-    <p>{{type}}</p>
-    <p>{{species}}</p>
-    <p>{{character}}</p>
-    <p>{{info}}</p>
-    <p>{{breed}}</p>
-    <hr />
-  {{/each}}
-</div>
-<div>
-  {{#each user.favorite}}
-    <img
-      class="img-adoption-post"
-      src="{{imageUrl}}"
-      alt="Favorite pet photo"
-    />
-    <p>{{name}}</p>
-    <p>{{age}}</p>
-    <p>{{color}}</p>
-    <p>{{type}}</p>
-    <p>{{species}}</p>
-    <p>{{character}}</p>
-    <p>{{info}}</p>
-    <p>{{breed}}</p>
-  {{/each}}
-
+<section class="animal-grid-sec">
+<div class="profile-content">
+    {{#if user.adoptionPost}}
+      <h2 class="animal-grid-title">Your Adoption Posts</h2>
+        <div class="animal-grid">
+      {{#each user.adoptionPost}}
+        <div class="animal-container">
+          <div>
+            <img
+              class="animal-img-sm"
+              src="{{imageUrl}}"
+              alt="Photo of a {{species}}"
+            />
+          </div>
+          <div class="animal-content-text">
+            <a href="/adoption-post/{{_id}}" class="animal-name-sm">{{name}}</a>
+            <span class="animal-character">{{character}}</span>
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      <h2 class="animal-grid-title">Your Favorites</h2>
+        <div class="animal-grid">
+      {{#each user.favorite}}
+         <div class="animal-container">
+          <div>
+            <img
+              class="animal-img-sm"
+              src="{{imageUrl}}"
+              alt="Photo of a {{species}}"
+            />
+          </div>
+          <div class="animal-content-text">
+            <a href="/adoption-post/{{_id}}" class="animal-name-sm">{{name}}</a>
+            <span class="animal-character">{{character}}</span>
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+  </div>
+</section>
 </div>

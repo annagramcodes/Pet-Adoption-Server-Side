@@ -36,7 +36,7 @@ const userSchema = new Schema({
   },
   imgUrl: {
     type: String,
-    default: "",
+    default: "https://res.cloudinary.com/dbjmfu4xr/image/upload/v1652906776/animal-adoption-project/undraw_woman_mevk_qdzvin.svg",
   },
   adoptionPost: [{ type: Schema.Types.ObjectId, ref: "Animal" }],
   favorite: [{ type: Schema.Types.ObjectId, ref: "Animal" }],

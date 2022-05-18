@@ -1,6 +1,5 @@
 <main class="container">
-  <h1 class="list-header">These
-    {{animal.0.species}}s are looking for new homes!</h1>
+  <h1 class="list-header">Furreal! These furrballs are looking for new homes.</h1>
   <div class="row list-grid">
     {{#each animal}}
       <div class="animal-card">
@@ -9,7 +8,11 @@
           src="{{imageUrl}}"
           alt="Photo of a {{species}}"
         />
-        <a href="/adoption-post/{{_id}}" class="animal-name">{{name}}</a>
+        <div class="animal-content-text">
+
+          <a href="/adoption-post/{{_id}}" class="animal-name">{{name}}</a>
+          <span class="animal-character">{{character}}</span>
+        </div>
       </div>
     {{/each}}
   </div>

@@ -9,8 +9,8 @@
 .wrapper-border {
   max-width: 55vw;
   box-shadow: var(--green300) 0px 0px 0px 1px;
-  padding: 3rem;
-  margin-bottom: 1rem;
+  padding: 3rem 3rem 2rem 3rem;
+  margin-bottom: 3rem;
 }
 
 .animal-info-container {
@@ -72,26 +72,31 @@ h6.info-text {
 
 .edit-delete-btn-container {
   max-width: 55vw;
-  /* display: flex;
-  justify-content: space-between; */
-  margin-top: 2rem;
+  display: flex;
+  margin-top: 3rem;
 }
 
-.btn-edit,
-.btn-delete {
+.btn-edit {
+  font-size: 1.2rem;
   min-width: 20ch;
   background-color: var(--yellow500);
   color: var(--beige100);
-  font-size: 1.2rem;
-  margin-bottom: 1.2rem;
   border: 2px solid var(--yellow500);
 }
 
 .btn-delete {
-  background-color: var(--lila500);
-  color: var(--beige100);
   font-size: 1.2rem;
-  border: 2px solid var(--lila500);
+  min-width: 20ch;
+  margin-left: 2rem;
+  background-color: transparent;
+  color: var(--red300);
+  border: 2px solid var(--red300);
+  box-sizing: border-box;
+}
+.btn-delete:hover {
+  background-color: var(--red300);
+  color: var(--beige100);
+  border: 2px solid var(--red300);
 }
 
 .owner-contact-container {
@@ -101,4 +106,10 @@ h6.info-text {
 .owner-contact-text {
   padding: 0;
   margin: 0.2rem;
+}
+
+.divider-details {
+  border-top: 2px solid var(--yellow500);
+  width: 10vw;
+  padding-bottom: 1rem;
 }
