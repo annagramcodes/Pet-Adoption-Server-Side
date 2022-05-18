@@ -6,6 +6,7 @@
 :root {
   --lila300: #997481;
   --lila500: #6b515a;
+  --green100: #c1d6c9;
   --green200: #b6c9bd;
   --green300: #91b59e;
   --green400: #839e8d;
@@ -236,10 +237,4 @@ h1 {
   background-color: var(--lila300);
   border: 1px solid var(--lila300);
   color: var(--beige100);
-}
-
-/* FORM SYTLING */
-.form-control:focus {
-  border-color: var(--lila300);
-  box-shadow: 0 0 0 0.1rem var(--green300);
 }
