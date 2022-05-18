@@ -1,18 +1,28 @@
-<form action="/login" method="POST">
-  <label>
-    Email
-    <input type="text" name="email" />
-  </label>
-  <label>
-    Password
-    <input type="password" name="password" />
-  </label>
+<div class="container-forms">
+  <div class="row">
+    <div class="col sm-6">
+      <form action="/login" method="POST">
+        <div class="form-group">
 
-  <button type="submit">Submit</button>
-</form>
-
-<div> <a href="/signup">You dont have an account? Create one here!</a></div>
-
-{{#if errorMessage}}
-  {{errorMessage}}
-{{/if}}
+          <label>
+            Email
+            <input class="form-control" type="text" name="email" />
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            Password
+            <input class="form-control" type="password" name="password" />
+          </label>
+        </div>
+        <button class="btn btn-form-log-in" type="submit">Submit</button>
+      <div>
+        <a class="sign-up-link"
+        href="/signup">You dont have an account? Create one here!</a></div>
+        {{#if errorMessage}}
+        {{errorMessage}}
+      {{/if}}
+    </div>
+      </form>
+  </div>
+</div>

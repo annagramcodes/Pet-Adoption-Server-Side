@@ -1,0 +1,49 @@
+/* FORM SYTLING */
+
+.container-forms {
+  margin: 1rem 0 2rem 3rem;
+}
+.create-listing,
+.sign-up-page {
+  margin: 2rem 0;
+  max-width: 40vw;
+}
+
+label {
+  color: var(--green700);
+  font-size: 1rem;
+}
+
+.btn-form-create,
+.btn-form-sign-up,
+.btn-form-log-in {
+  min-width: 20ch;
+  background-color: var(--yellow500);
+  color: var(--yellow900);
+  margin-right: 2rem;
+  font-size: 1.2rem;
+  border: 1px solid var(--yellow500);
+  margin: 0;
+  max-width: 20ch;
+}
+.form-control:focus,
+.btn-form-create:focus,
+.btn-form-sign-up:focus,
+.btn-form-log-in:focus {
+  border-color: var(--lila300);
+  box-shadow: 0 0 0 0.1rem var(--green300);
+}
+
+.container-login-form {
+  margin: 3rem;
+}
+
+.sign-up-link {
+  color: var(--green700);
+  font-weight: bold;
+  margin-top: 1rem;
+  display: block;
+}
+.sign-up-link:hover {
+  color: var(--green300);
+}
