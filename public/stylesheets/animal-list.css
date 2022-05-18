@@ -2,10 +2,11 @@ main.container {
   min-height: 100vh;
 }
 .list-header {
-  margin: 0 auto;
+  margin: 3rem auto;
   text-align: center;
   font-size: 42px;
   margin-bottom: 3rem;
+  color: var(--green700);
 }
 .list-grid {
   display: flex;
@@ -31,6 +32,10 @@ main.container {
   padding: 1.2rem 0.4rem;
   font-size: 1.1rem;
   text-align: center;
+  color: var(--green700);
+}
+.animal-name:hover {
+  color: var(--green500);
 }
 * {
   box-sizing: border-box;
