@@ -9,8 +9,8 @@
 .wrapper-border {
   max-width: 55vw;
   box-shadow: var(--green300) 0px 0px 0px 1px;
-  padding: 2rem;
-  margin-bottom: 4rem;
+  padding: 3rem;
+  margin-bottom: 1rem;
 }
 
 .animal-info-container {
@@ -48,7 +48,7 @@ h6.info-text {
 }
 
 .btn-favorites {
-  margin: 1.8rem 0 0 0;
+  margin: 1.7rem 0 0 0;
   padding: 0 0.5rem;
   font-weight: 700;
   color: var(--green700);
@@ -83,7 +83,7 @@ h6.info-text {
   background-color: var(--yellow500);
   color: var(--beige100);
   font-size: 1.2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   border: 2px solid var(--yellow500);
 }
 
