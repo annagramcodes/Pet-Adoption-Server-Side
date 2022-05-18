@@ -13,7 +13,7 @@
       class="img-adoption-post"
     />
   </div>
-  
+
   {{#if_eq animal.owner userId}}
     <a class="btn" href="/adoption-post/{{animal._id}}/edit">Edit</a>
     <form action="/adoption-post/{{animal._id}}/delete" method="POST">
@@ -37,4 +37,11 @@
       </form>
     {{/if_eq}}
   {{/if_neq}}
+
+  <div>
+    <hr />
+    {{#each animal.owner}}
+      {{name}}
+    {{/each}}
+  </div>
 </div>

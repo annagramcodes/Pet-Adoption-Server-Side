@@ -7,7 +7,10 @@ const animalSchema = new Schema({
   species: {
     type: String,
     required: [true],
-    lowercase: true,
+  },
+  gender: {
+    type: String,
+    required: [true],
   },
   character: String,
   info: String,

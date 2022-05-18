@@ -21,6 +21,7 @@ router.get("/animals-for-adoption/dogs", (req, res, next) => {
   Animal.find({ species: "dog" })
     .then((animal) => {
       res.render("animals/animal-list.hbs", { animal });
+      console.log(animal);
     })
     .catch((err) => next(err));
 });
@@ -44,6 +45,7 @@ router.post(
       age,
       color,
       species,
+      gender,
       breed,
       character,
       info,
@@ -56,6 +58,7 @@ router.post(
       age,
       color,
       species,
+      gender,
       breed,
       character,
       info,
@@ -95,14 +98,24 @@ router.post(
   fileUploader.single("animal-img"),
   (req, res, next) => {
     const { id } = req.params;
-    const { name, age, color, species, breed, character, info, imageUrl } =
-      req.body;
+    const {
+      name,
+      age,
+      color,
+      species,
+      gender,
+      breed,
+      character,
+      info,
+      imageUrl,
+    } = req.body;
 
     Animal.findByIdAndUpdate(id, {
       name,
       age,
       color,
       species,
+      gender,
       breed,
       character,
       info,
@@ -130,9 +143,11 @@ router.post("/adoption-post/:id/delete", (req, res, next) => {
 router.get("/adoption-post/:id", (req, res, next) => {
   const { id } = req.params;
   const userId = req.session.user._id;
-  Animal.findById(id).then((animal) => {
-    res.render("animals/animal-details", { animal, userId });
-  });
+  Animal.findById(id)
+    .populate("owner")
+    .then((animal) => {
+      res.render("animals/animal-details", { animal, userId });
+    });
 });
 
 /////////////////////////////
@@ -141,7 +156,7 @@ router.post("/adoption-post/:id/favorite", isLoggedIn, (req, res, next) => {
   const { id } = req.params;
   if (req.session.user) {
     Animal.findByIdAndUpdate(id, {
-      $push: { favoritedBy: req.session.user._id }
+      $push: { favoritedBy: req.session.user._id },
     }).then((animal) => {
       return User.findByIdAndUpdate(req.session.user._id, {
         $addToSet: { favorite: animal._id },
@@ -160,7 +175,7 @@ router.post("/adoption-post/:id/remove-favorite", (req, res, next) => {
   const { id } = req.params;
 
   Animal.findByIdAndUpdate(id, {
-    $pull: { favoritedBy: req.session.user._id }
+    $pull: { favoritedBy: req.session.user._id },
   }).then((animal) => {
     return User.findByIdAndUpdate(req.session.user._id, {
       $pull: { favorite: animal._id },
