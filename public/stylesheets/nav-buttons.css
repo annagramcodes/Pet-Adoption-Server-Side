@@ -1,3 +1,8 @@
+.navbar-custom {
+  display: flex;
+  justify-content: space-between;
+}
+
 .nav-btns {
   display: flex;
   text-decoration: none;
@@ -27,14 +32,9 @@
   width: 25px;
 }
 
-/* .btns {
-  margin-left: 10px;
-}
-
 .user-name {
-  display: flex;
-  color: white;
-  align-items: center;
-  margin-left: 100px;
+  color: var(--beige100);
+  padding: 0.3rem 0.2rem 0.1rem 0;
+  border-bottom: 2px solid var(--green700);
+  margin-right: 0.5rem;
 }
- */
