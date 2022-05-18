@@ -36,6 +36,14 @@ h5 {
   font-family: "Nunito", sans-serif;
 }
 
+a {
+  color: white;
+}
+
+h1 {
+  color: 15px;
+}
+
 /*////////////////* HERO */
 
 .green-300 {

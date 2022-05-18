@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/nav-buttons.css">
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="/stylesheets/animal-list.css" />
     <link rel="stylesheet" href="/stylesheets/animal-details.css" />
@@ -21,27 +22,36 @@
   </head>
 
   <nav class="navbar navbar-expand-lg green-300">
-    <a class="navbar-brand nav-link" href="/">LOGO</a>
+    <a class="nav-logo" href="/"><img src="/images/pet-logo.png" alt=""></a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+      <div class="nav-btns">
       {{#if user}}
-        <a class="nav-link" href="/profile">Profile</a>
-        <a class="nav-link" href="/logout">Log out</a>
-        <a class="nav-link ml-3 pl-4 nav-link-border" href="/animals-for-adoption/cats">Cats</a>
-        <a class="nav-link" href="/animals-for-adoption/dogs">Dogs</a>
-        <a class="nav-link" href="/adoption-post/create">Create Listing </a>
+      <div class="nav-btns">
+        <a class="btns nav-link " href="/animals-for-adoption/cats">Cats</a>
+        <a class="btns nav-link" href="/animals-for-adoption/dogs">Dogs</a>
+        <a class="btns nav-link" href="/adoption-post/create">Create Listing </a>
+      </div>
+      <div class="nav-btns">
+        <p class="user-name">Hello,{{user.name}}</p>
+        <a class="login-btn nav-link" href="/profile">Profile</a>
+        <a class="signup-btn nav-link" href="/logout">Log out</a>
+      </div>
       {{else}}
-<a class="nav-link" href="/login">Log in</a>
-        <a class="nav-link" href="/signup">Sign up</a>
-        <a class="nav-link ml-3 pl-4 nav-link-border" href="/animals-for-adoption/cats">Cats</a>
-        <a class="nav-link" href="/animals-for-adoption/dogs">Dogs</a>
-        <a class="nav-link" href="/adoption-post/create">Create Listing </a>
+      <div class="nav-btns">
+        <a class="btns nav-link" href="/animals-for-adoption/cats">Cats</a>
+        <a class="btns nav-link" href="/animals-for-adoption/dogs">Dogs</a>
+        <a class="btnsb nav-link" href="/adoption-post/create">Create Listing </a>
+      </div>
+      <div class="nav-btns">
+        <a class="login-btn nav-link" href="/login">Log in</a>
+        <a class="signup-btn nav-link" href="/signup">Sign up</a>
+      </div>
+    </div>
       {{/if}}
-        <p>{{user.name}}</p>
       </div>
     </div>
   </nav>
