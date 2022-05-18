@@ -106,7 +106,7 @@ h1 {
 }
 
 .btn-adopt:hover,
-.btn-create:hover {
+.btn-create-listing:hover {
   background-color: var(--yellow700);
   color: var(--yellow100);
   border: 1px solid var(--yellow700);
@@ -119,6 +119,7 @@ h1 {
   object-fit: fill;
 }
 
+/* ABOUT SECTION */
 .divider-lila {
   border-top: 2px solid var(--lila300);
   width: 10vw;
@@ -149,7 +150,7 @@ h1 {
   font-size: 2.2rem;
 }
 .about-title {
-  color: var(--beige100);
+  color: var(--beige200);
 }
 
 .about-text {
@@ -161,16 +162,16 @@ h1 {
 .btn-about {
   max-width: 20ch;
   background-color: transparent;
-  color: var(--beige100);
+  color: var(--beige200);
   margin: 0 auto;
   font-size: 1.2rem;
-  border: 1px solid var(--beige100);
+  border: 1px solid var(--beige200);
   display: block;
 }
 .btn-about:hover {
-  background-color: var(--beige100);
+  background-color: var(--beige200);
   color: var(--green500);
-  border: 1px solid var(--beige100);
+  border: 1px solid var(--beige200);
 }
 
 .divider-yellow {
@@ -179,25 +180,25 @@ h1 {
   padding-bottom: 1rem;
 }
 
-/* ADOPT  */
+/* ADOPT SECTION */
 
 .adopt {
-  padding: 7rem 0;
-  background-color: var(--green400);
-  min-height: 80vh;
+  padding: 2rem 0;
+  background-color: var(--green300);
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .adopt-content {
-  background-color: var(--beige100);
+  /* background-color: var(--beige100); */
   padding: 3rem;
   max-width: 70vw;
 }
 
 .adopt-title {
   font-size: 2.4rem;
-  color: var(--green700);
+  color: var(--beige100);
   font-weight: 700;
   text-align: center;
 }
