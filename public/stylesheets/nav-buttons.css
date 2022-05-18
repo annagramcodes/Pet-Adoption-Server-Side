@@ -1,11 +1,16 @@
 .nav-btns {
   display: flex;
-  justify-content: space-between;
   text-decoration: none;
   align-items: center;
   margin-left: 20px;
 }
-
+.nav-width {
+  width: 100vw;
+}
+.division {
+  display: flex;
+  justify-content: space-between;
+}
 /* .log-sign-btn {
   display: flex;
 }
