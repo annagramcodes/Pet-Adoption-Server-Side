@@ -23,8 +23,11 @@
                 action="/adoption-post/{{animal._id}}/favorite"
                 method="POST"
               >
-                <button class="btn btn-favorites">Add to
-                  <span class="green-border">favorites</span></button>
+                <button class="btn btn-favorites">
+                  <img src="../../images/heart.png" width="20px" alt="" />
+                  Add to
+                  <span class="green-border">favorites</span>
+                </button>
               </form>
             {{/if_neq}}
 
@@ -56,19 +59,19 @@
         </div>
       {{/if_neq}}
     </div>
-  </div>
-  {{#if_eq animal.owner._id userId}}
-    <div class="edit-delete-btn-container">
-      <div>
-        <a
-          class="btn btn-sm btn-edit"
-          href="/adoption-post/{{animal._id}}/edit"
-        >Edit Listing</a>
+    {{#if_eq animal.owner._id userId}}
+      <div class="edit-delete-btn-container">
+        <div>
+          <a
+            class="btn btn-sm btn-edit"
+            href="/adoption-post/{{animal._id}}/edit"
+          >Edit Listing</a>
+        </div>
+        <form action="/adoption-post/{{animal._id}}/delete" method="POST">
+          <button class="btn btn-delete">Delete Listing</button>
+        </form>
       </div>
-      <form action="/adoption-post/{{animal._id}}/delete" method="POST">
-        <button class="btn btn-delete">Delete Listing</button>
-      </form>
-    </div>
-  {{/if_eq}}
+    {{/if_eq}}
+  </div>
 
 </div>

@@ -1,29 +1,78 @@
-<form action="/{{_id}}/edit" method="POST" enctype="multipart/form-data">
-  <label for="text">
-    Name:
-    <input type="text" name="name" value="{{name}}" />
-  </label>
-  <label>
-    Email:
-    <input type="email" name="email" value="{{email}}" />
-  </label>
-  <label>
-    Password:
-    <input type="password" name="password" value="{{email}}" />
-  </label>
-  <label for="text">Address:
-    <input type="text" name="address" value="{{address}}" />
-  </label>
-  <label for="number">Phone number:
-    <input type="number" name="phonenumber" value="{{phonenumber}}" />
-  </label>
-  <label for="image">
-    Image
-    <input type="file" name="user-img" />
-  </label>
+<div class="container-forms">
+  <div class="row">
+    <div class="col sm-6">
+      <form action="/{{_id}}/edit" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
 
-  <button type="submit">Submit</button>
-</form>
-<form action="/{{_id}}/delete" method="post">
-  <button type="submit">Delete the profile</button>
-</form>
+          <label for="text">
+            Name:
+            <input
+              class="form-control"
+              type="text"
+              name="name"
+              value="{{name}}"
+            />
+          </label>
+        </div>
+        <div class="form-group">
+
+          <label>
+            Email:
+            <input
+              class="form-control"
+              type="email"
+              name="email"
+              value="{{email}}"
+            />
+          </label>
+        </div>
+        <div class="form-group">
+
+          <label>
+            Password:
+            <input
+              class="form-control"
+              type="password"
+              name="password"
+              value="{{email}}"
+            />
+          </label>
+        </div>
+        <div class="form-group">
+
+          <label for="text">Address:
+            <input
+              class="form-control"
+              type="text"
+              name="address"
+              value="{{address}}"
+            />
+          </label>
+        </div>
+        <div class="form-group">
+
+          <label for="number">Phone number:
+            <input
+              class="form-control"
+              type="number"
+              name="phonenumber"
+              value="{{phonenumber}}"
+            />
+          </label>
+        </div>
+        <div class="form-group">
+
+          <label for="image">
+            Image
+            <input type="file" name="user-img" />
+          </label>
+
+        </div>
+        <button class="btn btn-form-sign-up" type="submit">Submit</button>
+      </form>
+      <form action="/{{_id}}/delete" method="post">
+        <button class="btn btn-delete" type="submit">Delete the profile</button>
+      </form>
+    </div>
+  </div>
+</div>
