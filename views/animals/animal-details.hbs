@@ -1,45 +1,67 @@
 <div class="container">
-  <p class="card-text">Name: {{animal.name}}</p>
-  <p class="card-text">Age: {{animal.age}}</p>
-  <p class="card-text">Color: {{animal.color}}</p>
-  <p class="card-text">Breed: {{animal.breed}}</p>
-  <p class="card-text">Species: {{animal.species}}</p>
-  <p class="card-text">Character: {{animal.character}}</p>
-  <p class="card-text">Info: {{animal.info}}</p>
-  <div>
-    <img
-      src="{{animal.imageUrl}}"
-      alt="Photo of a {{animal.species}}"
-      class="img-adoption-post"
-    />
-  </div>
+  <div class="row-center">
+    <div class="wrapper-border">
+      <div class="animal-info-container">
+        <div class="animal-img-container">
+          <img
+            src="{{animal.imageUrl}}"
+            alt="Photo of a {{animal.species}}"
+            class="img-details-post"
+          />
+        </div>
+        <div class="animal-info-text">
+          <h3 class="info-title">{{animal.name}}</h3>
+          <p class="info-text"><b> Age:</b> {{animal.age}}</p>
+          <p class="info-text"><b>Gender:</b> {{animal.gender}}</p>
+          <p class="info-text"><b> Color: </b>{{animal.color}}</p>
+          <p class="info-text"><b>Breed: </b>{{animal.breed}}</p>
+          <h6 class="info-text"><b>Characteristics:</b></h6>
+          <p class="info-text">{{animal.character}}</p>
+          {{#if_neq animal.owner._id userId}}
+            {{#if_neq animal.favoritedBy userId}}
+              <form
+                action="/adoption-post/{{animal._id}}/favorite"
+                method="POST"
+              >
+                <button class="btn btn-favorites">Add to favorites</button>
+              </form>
+            {{/if_neq}}
 
-  {{#if_eq animal.owner userId}}
-    <a class="btn" href="/adoption-post/{{animal._id}}/edit">Edit</a>
-    <form action="/adoption-post/{{animal._id}}/delete" method="POST">
-      <button class="btn">Delete</button>
-    </form>
+            {{#if_eq animal.favoritedBy userId}}
+              <form
+                action="/adoption-post/{{animal._id}}/remove-favorite"
+                method="POST"
+              >
+                <button class="btn btn-favorites">Remove favorite</button>
+              </form>
+            {{/if_eq}}
+          {{/if_neq}}
+        </div>
+
+      </div>
+      <hr class="divider-yellow details-page" />
+      <div class="animal-about-container">
+        <h6 class="animal-about-title">About {{animal.name}}: </h6>
+        <p class="animal-about-text">{{animal.info}}</p>
+      </div>
+    </div>
+  </div>
+  {{#if_eq animal.owner._id userId}}
+    <div class="edit-delete-btn-container">
+      <div>
+        <a
+          class="btn btn-sm btn-edit"
+          href="/adoption-post/{{animal._id}}/edit"
+        >Edit Listing</a>
+      </div>
+      <form action="/adoption-post/{{animal._id}}/delete" method="POST">
+        <button class="btn btn-delete">Delete Listing</button>
+      </form>
+    </div>
   {{/if_eq}}
 
-  {{#if_neq animal.owner userId}}
-    {{#if_neq animal.favoritedBy userId}}
-      <form action="/adoption-post/{{animal._id}}/favorite" method="POST">
-        <button class="btn">HEART ME</button>
-      </form>
-    {{/if_neq}}
-
-    {{#if_eq animal.favoritedBy userId}}
-      <form
-        action="/adoption-post/{{animal._id}}/remove-favorite"
-        method="POST"
-      >
-        <button class="btn">Remove from favorites</button>
-      </form>
-    {{/if_eq}}
-  {{/if_neq}}
-
   <div>
-    <hr />
+
     {{#each animal.owner}}
       {{name}}
     {{/each}}

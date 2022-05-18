@@ -36,14 +36,6 @@ h5 {
   font-family: "Nunito", sans-serif;
 }
 
-a {
-  color: #00b7ff;
-}
-
-h1 {
-  color: 15px;
-}
-
 /*////////////////* HERO */
 
 .green-300 {
@@ -224,17 +216,17 @@ h1 {
 .btn-adopt-dogs,
 .btn-adopt-cats {
   min-width: 20ch;
-  background-color: var(--yellow500);
-  color: var(--yellow900);
+  background-color: transparent;
+  color: var(--beige100);
   margin-right: 2rem;
   font-size: 1.2rem;
-  border: 1px solid var(--yellow500);
+  border: 1px solid var(--beige100);
   margin: 0;
   max-width: 20ch;
 }
 
-.btn-adopt-dogs {
-  background-color: var(--lila300);
-  border: 1px solid var(--lila300);
-  color: var(--beige100);
+.btn-adopt-dogs:hover,
+.btn-adopt-cats:hover {
+  background-color: var(--beige100);
+  color: var(--green700);
 }

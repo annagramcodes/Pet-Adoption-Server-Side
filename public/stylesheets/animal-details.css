@@ -1,0 +1,89 @@
+.row-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  margin-top: 5rem;
+}
+
+.wrapper-border {
+  max-width: 55vw;
+  box-shadow: var(--green300) 0px 0px 0px 1px;
+  padding: 1rem;
+}
+
+.animal-info-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.info-title {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--green700);
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  border-left: 5px solid var(--green300);
+}
+
+.info-text {
+  font-size: 0.9rem;
+  margin-bottom: 0.9rem;
+  color: var(--green900);
+  padding-left: 0.5rem;
+}
+
+h6.info-text {
+  margin-bottom: 0.5rem;
+}
+.info-text:last-child {
+  margin-bottom: 2rem;
+}
+.img-details-post {
+  max-width: 450px;
+}
+
+.animal-info-container {
+  margin-bottom: 4rem;
+}
+
+.btn-favorites {
+  margin: 0;
+  padding: 0 0 0 0.5rem;
+  font-weight: 700;
+  color: var(--green500);
+}
+
+.animal-about-title {
+  font-weight: 700;
+  color: var(--green700);
+}
+
+.animal-about-text {
+  max-width: 50vw;
+}
+
+.edit-delete-btn-container {
+  max-width: 55vw;
+  /* display: flex;
+  justify-content: space-between; */
+  margin-top: 2rem;
+}
+
+.btn-edit,
+.btn-delete {
+  min-width: 20ch;
+  background-color: var(--yellow500);
+  color: var(--beige100);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  border: 2px solid var(--yellow500);
+}
+
+.btn-delete {
+  background-color: var(--lila500);
+  color: var(--beige100);
+  font-size: 1.2rem;
+  border: 2px solid var(--lila500);
+}

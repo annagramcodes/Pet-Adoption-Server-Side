@@ -20,7 +20,8 @@ label {
   margin: 0;
   max-width: 20ch;
 }
-.form-control:focus {
+.form-control:focus,
+.btn-form-create:focus {
   border-color: var(--lila300);
   box-shadow: 0 0 0 0.1rem var(--green300);
 }
