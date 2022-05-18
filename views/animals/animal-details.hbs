@@ -13,6 +13,7 @@
       class="img-adoption-post"
     />
   </div>
+
   {{#if_eq animal.owner userId}}
     <a class="btn" href="/adoption-post/{{animal._id}}/edit">Edit</a>
     <form action="/adoption-post/{{animal._id}}/delete" method="POST">
@@ -20,22 +21,27 @@
     </form>
   {{/if_eq}}
 
-  {{#if_neq animal.favoritedBy userId}}
-    <form action="/adoption-post/{{animal._id}}/favorite" method="POST">
-      <button class="btn">HEART ME</button>
-    </form>
+  {{#if_neq animal.owner userId}}
+    {{#if_neq animal.favoritedBy userId}}
+      <form action="/adoption-post/{{animal._id}}/favorite" method="POST">
+        <button class="btn">HEART ME</button>
+      </form>
+    {{/if_neq}}
+
+    {{#if_eq animal.favoritedBy userId}}
+      <form
+        action="/adoption-post/{{animal._id}}/remove-favorite"
+        method="POST"
+      >
+        <button class="btn">Remove from favorites</button>
+      </form>
+    {{/if_eq}}
   {{/if_neq}}
 
-  {{#if_eq animal.favoritedBy userId}}
-    <form action="/adoption-post/{{animal._id}}/remove-favorite" method="POST">
-      <button class="btn">Remove from favorites</button>
-    </form>
-  {{/if_eq}}
-
-  <hr />
-  {{#each animal.owner}}
-    <p>{{name}}</p>
-  {{/each}}
-  <p>asda</p>
-
+  <div>
+    <hr />
+    {{#each animal.owner}}
+      {{name}}
+    {{/each}}
+  </div>
 </div>

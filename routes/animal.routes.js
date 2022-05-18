@@ -11,7 +11,6 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 // RENDERING THE LIST OF ADOPTION POSTS //
 router.get("/animals-for-adoption/cats", (req, res, next) => {
   Animal.find({ species: "cat" })
-    .populate("owner")
     .then((animal) => {
       res.render("animals/animal-list.hbs", { animal });
     })
@@ -20,7 +19,6 @@ router.get("/animals-for-adoption/cats", (req, res, next) => {
 
 router.get("/animals-for-adoption/dogs", (req, res, next) => {
   Animal.find({ species: "dog" })
-    .populate("owner")
     .then((animal) => {
       res.render("animals/animal-list.hbs", { animal });
       console.log(animal);
@@ -133,9 +131,11 @@ router.post("/adoption-post/:id/delete", (req, res, next) => {
 router.get("/adoption-post/:id", (req, res, next) => {
   const { id } = req.params;
   const userId = req.session.user._id;
-  Animal.findById(id).then((animal) => {
-    res.render("animals/animal-details", { animal, userId });
-  });
+  Animal.findById(id)
+    .populate("owner")
+    .then((animal) => {
+      res.render("animals/animal-details", { animal, userId });
+    });
 });
 
 /////////////////////////////
