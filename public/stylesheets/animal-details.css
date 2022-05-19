@@ -89,6 +89,7 @@ h6.info-text {
   background-color: var(--yellow500);
   color: var(--beige100);
   border: 2px solid var(--yellow500);
+  font-weight: 700;
 }
 
 .btn-delete {
@@ -99,6 +100,7 @@ h6.info-text {
   color: var(--red300);
   border: 2px solid var(--red300);
   box-sizing: border-box;
+  font-weight: 700;
 }
 .btn-delete:hover {
   background-color: var(--red300);
@@ -119,6 +121,9 @@ h6.info-text {
   border-top: 2px solid var(--yellow500);
   width: 10vw;
   padding-bottom: 1rem;
+}
+.contact-icon-owner {
+  display: inline;
 }
 
 @media only screen and (max-width: 600px) {
