@@ -26,6 +26,9 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: "Source Sans Pro", sans-serif;
   background-color: var(--beige100);
   font-family: "Montserrat", sans-serif;

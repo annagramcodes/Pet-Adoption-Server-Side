@@ -123,7 +123,8 @@ h6.info-text {
   padding-bottom: 1rem;
 }
 .contact-icon-owner {
-  display: inline;
+  display: inline-block;
+  margin-right: 0.5rem;
 }
 
 @media only screen and (max-width: 600px) {
