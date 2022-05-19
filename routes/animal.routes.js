@@ -12,7 +12,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 router.get("/animals-for-adoption/cats", (req, res, next) => {
   Animal.find({ species: "cat" })
     .then((animal) => {
-      res.render("animals/animal-list.hbs", { animal });
+      res.render("animals/animal-list.hbs", { animal, user: req.session.user });
     })
     .catch((err) => next(err));
 });
@@ -20,7 +20,7 @@ router.get("/animals-for-adoption/cats", (req, res, next) => {
 router.get("/animals-for-adoption/dogs", (req, res, next) => {
   Animal.find({ species: "dog" })
     .then((animal) => {
-      res.render("animals/animal-list.hbs", { animal });
+      res.render("animals/animal-list.hbs", { animal, user: req.session.user });
       console.log(animal);
     })
     .catch((err) => next(err));
