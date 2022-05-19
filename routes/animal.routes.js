@@ -30,7 +30,7 @@ router.get("/animals-for-adoption/dogs", (req, res, next) => {
 // CREATING ADOPTION POSTS //
 router.get("/adoption-post/create", isLoggedIn, (req, res, next) => {
   if (isLoggedIn) {
-    res.render("animals/create-adoption-post.hbs");
+    res.render("animals/create-adoption-post.hbs", { user: req.session.user });
   } else {
     res.redirect("/login");
   }
@@ -87,8 +87,11 @@ router.post(
 router.get("/adoption-post/:id/edit", (req, res, next) => {
   const { id } = req.params;
   Animal.findById(id)
-    .then((animal) => {
-      res.render("animals/edit-adoption-post", animal);
+    .then((form) => {
+      res.render("animals/edit-adoption-post", {
+        form,
+        user: req.session.user,
+      });
     })
     .catch((err) => next(err));
 });
@@ -147,10 +150,14 @@ router.get("/adoption-post/:id", (req, res, next) => {
   if (req.session.user) {
     let userId = req.session.user._id;
     Animal.findById(id)
-    .populate("owner")
-    .then((animal) => {
-      res.render("animals/animal-details", { animal, userId });
-    }).catch((err) => next(err));
+      .populate("owner")
+      .then((animal) => {
+        res.render("animals/animal-details", {
+          animal,
+          userId,
+          user: req.session.user,
+        }).catch((err) => next(err));
+      });
   } else {
     res.redirect("/login");
   }

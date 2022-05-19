@@ -17,8 +17,11 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
 
 router.get("/:id/edit", (req, res, next) => {
   const { id } = req.params;
+
   User.findById(id)
-    .then((user) => res.render("profiles/profile-edit", user))
+    .then((userform) =>
+      res.render("profiles/profile-edit", { userform, user: req.session.user })
+    )
     .catch((err) => next(err));
 });
 
@@ -52,16 +55,6 @@ router.post("/:id/edit", fileUploader.single("user-img"), (req, res, next) => {
       .catch((err) => next(err));
   }
 });
-/* router.get("/profile/:id", (req, res, next) => {
-  const { id } = req.params;
-  console.log("user profile loading");
-  User.findById(id)
-    .populate("adoptionPost")
-    .then((user) => {
-      console.log({ user });
-      res.render("profiles/profile", { user });
-    });
-}); */
 
 router.post("/:id/delete", (req, res, next) => {
   const { id } = req.params;
