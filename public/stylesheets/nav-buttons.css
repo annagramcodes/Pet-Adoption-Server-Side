@@ -36,7 +36,7 @@
 .user-name {
   color: var(--beige100);
   padding: 0.3rem 0.2rem 0.1rem 0;
-  border-bottom: 2px solid var(--green700);
+  border-bottom: 2px solid var(--yellow500);
   margin-right: 0.5rem;
 }
 .footer {

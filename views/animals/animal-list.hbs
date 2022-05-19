@@ -1,19 +1,22 @@
-<main class="container">
-  <h1 class="list-header">Furreal! These furrballs are looking for new homes.</h1>
-  <div class="row list-grid">
-    {{#each animal}}
-      <div class="animal-card">
-        <img
-          class="animal-img"
-          src="{{imageUrl}}"
-          alt="Photo of a {{species}}"
-        />
-        <div class="animal-content-text">
+<main class="container-list">
+  <h1 class="list-header">Furreal!</h1>
+  <h2 class="subheader">These furrballs are looking for new homes.</h2>
+  <div class="list-row">
+    <div class="list-grid">
+      {{#each animal}}
+        <div class="animal-card">
+          <img
+            class="animal-img"
+            src="{{imageUrl}}"
+            alt="Photo of a {{species}}"
+          />
+          <div class="animal-content-text">
 
-          <a href="/adoption-post/{{_id}}" class="animal-name">{{name}}</a>
-          <span class="animal-character">{{character}}</span>
+            <a href="/adoption-post/{{_id}}" class="animal-name">{{name}}</a>
+            <span class="animal-character">{{character}}</span>
+          </div>
         </div>
-      </div>
-    {{/each}}
+      {{/each}}
+    </div>
   </div>
 </main>

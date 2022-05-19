@@ -147,16 +147,20 @@ router.post("/adoption-post/:id/delete", (req, res, next) => {
 // VIEWING ADOPTION POST ///
 router.get("/adoption-post/:id", (req, res, next) => {
   const { id } = req.params;
-  const userId = req.session.user._id;
-  Animal.findById(id)
-    .populate("owner")
-    .then((animal) => {
-      res.render("animals/animal-details", {
-        animal,
-        userId,
-        user: req.session.user,
+  if (req.session.user) {
+    let userId = req.session.user._id;
+    Animal.findById(id)
+      .populate("owner")
+      .then((animal) => {
+        res.render("animals/animal-details", {
+          animal,
+          userId,
+          user: req.session.user,
+        }).catch((err) => next(err));
       });
-    });
+  } else {
+    res.redirect("/login");
+  }
 });
 
 /////////////////////////////
