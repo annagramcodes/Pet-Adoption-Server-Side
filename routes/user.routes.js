@@ -40,7 +40,7 @@ router.post("/:id/edit", fileUploader.single("user-img"), (req, res, next) => {
       birthdate,
       imgUrl: req.file.path,
     })
-      .then((user) => res.redirect(`/profile/${user._id}`))
+      .then(() => res.redirect(`/profile`))
       .catch((err) => next(err));
   } else {
     User.findByIdAndUpdate(id, {
@@ -51,7 +51,7 @@ router.post("/:id/edit", fileUploader.single("user-img"), (req, res, next) => {
       address,
       birthdate,
     })
-      .then((user) => res.redirect(`/profile/${user._id}`))
+      .then(() => res.redirect(`/profile`))
       .catch((err) => next(err));
   }
 });

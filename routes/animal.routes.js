@@ -156,8 +156,9 @@ router.get("/adoption-post/:id", (req, res, next) => {
           animal,
           userId,
           user: req.session.user,
-        })
-      }).catch((err) => next(err));
+        });
+      })
+      .catch((err) => next(err));
   } else {
     res.redirect("/login");
   }
