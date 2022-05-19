@@ -20,9 +20,42 @@
   gap: 0.5rem;
   align-items: center;
   padding: 2rem 0;
+  margin-bottom: 1rem;
 }
 .profile-text {
   font-size: 1.3rem;
+}
+.contact-icon {
+  margin-right: 1.1rem;
+  display: block;
+}
+.smaller {
+  padding: 0 5px;
+}
+.profile-text {
+  display: flex;
+  align-items: center;
+}
+
+.edit-profile {
+  min-width: 20ch;
+  background-color: var(--yellow300);
+  color: var(--yellow900);
+  margin-right: 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: 1px solid var(--yellow300);
+  margin: 0;
+  max-width: 20ch;
+}
+.btn-form-log-in:focus {
+  border-color: var(--yellow700);
+  box-shadow: 0 0 0 0.1rem var(--yellow700);
+}
+.edit-profile:hover {
+  color: var(--beige100);
+  background-color: var(--yellow500);
+  border: 1px solid var(--yellow500);
 }
 
 .animal-grid-title {

@@ -7,9 +7,10 @@
     </div>
     <div class="profile-info-text">
       <p class="profile-text"><b>{{user.name}}</b></p>
-      <p class="profile-text"><b> Address:</b> {{user.address}}</p>
-      <p class="profile-text"><b>Phone Number:</b> {{user.phonenumber}}</p>
-      <a class="" href="/{{user._id}}/edit">Edit Profile</a>
+      <p class="profile-text"><img class="contact-icon" src="../../images/contact-img/address.svg" width="30">{{user.address}}</p>
+      <p class="profile-text"><img class="contact-icon smaller"src="../../images/contact-img/phone-call-svgrepo-com.svg" width="30">{{user.phonenumber}}</p>
+      <p class="profile-text"><img class="contact-icon smaller" src="../../images/contact-img/email.svg" width="30">{{user.email}}</p>
+      <a class="edit-profile btn" href="/{{user._id}}/edit">Edit Profile</a>
     </div>
   </div>
 <section class="animal-grid-sec">
