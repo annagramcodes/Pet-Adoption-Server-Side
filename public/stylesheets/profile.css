@@ -48,9 +48,9 @@
   margin: 0;
   max-width: 20ch;
 }
-.btn-form-log-in:focus {
+.edit-profile:focus {
   border-color: var(--yellow700);
-  box-shadow: 0 0 0 0.1rem var(--yellow700);
+  box-shadow: 0 0 0 0.2rem var(--yellow700);
 }
 .edit-profile:hover {
   color: var(--beige100);
@@ -103,4 +103,10 @@
 
 .animal-content-text {
   padding: 1.5rem 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile-img {
+    margin-bottom: 1rem;
+  }
 }

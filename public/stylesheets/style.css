@@ -4,8 +4,6 @@
 }
 
 :root {
-  --lila300: #997481;
-  --lila500: #6b515a;
   --green100: #c1d6c9;
   --green200: #b6c9bd;
   --green300: #91b59e;
@@ -263,7 +261,6 @@ h1 {
 
 .btn-container-adopt {
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -290,4 +287,47 @@ h1 {
 
 .btn {
   border-radius: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .hero-container {
+    background-size: cover;
+  }
+  .hero-title {
+    font-size: 4rem;
+  }
+  .btn-adopt,
+  .btn-create-listing {
+    margin: 1rem 0;
+  }
+  .features {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .about-content {
+    width: 90%;
+    margin: 0;
+    padding: 2rem 1.3rem;
+    margin-bottom: 5rem;
+  }
+  .adopt-content {
+    padding: 2rem 0;
+  }
+  .img-grid {
+    flex-direction: column;
+  }
+  .grid-item {
+    width: 275px;
+    height: 200px;
+  }
+  .btn-container-adopt {
+    margin-bottom: 2rem;
+    flex-direction: column;
+  }
+  .btn-adopt-cats {
+    margin-bottom: 0.5remrem;
+  }
+  .dog-img {
+    padding: 0;
+  }
 }

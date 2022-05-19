@@ -3,12 +3,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
+  padding-top: 4rem;
+  background-color: var(--yellow100);
 }
 
 .wrapper-border {
   max-width: 55vw;
-  box-shadow: var(--green300) 0px 0px 0px 1px;
+  box-shadow: var(--yellow500) 0px 0px 0px 5px;
   padding: 3rem 3rem 2rem 3rem;
   margin-bottom: 3rem;
 }
@@ -33,6 +34,7 @@
   margin-bottom: 0.9rem;
   color: var(--green900);
   padding-left: 0.5rem;
+  color: var(--yellow900);
 }
 
 h6.info-text {
@@ -44,7 +46,7 @@ h6.info-text {
 }
 
 .animal-info-container {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .btn-favorites {
@@ -55,7 +57,7 @@ h6.info-text {
 }
 
 .green-border {
-  border-bottom: 2px solid var(--green100);
+  border-bottom: 2px solid var(--green300);
   color: var(--green700);
 }
 
@@ -112,4 +114,29 @@ h6.info-text {
   border-top: 2px solid var(--yellow500);
   width: 10vw;
   padding-bottom: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .animal-info-container {
+    flex-direction: column;
+  }
+  .wrapper-border {
+    max-width: 90vw;
+  }
+  .img-details-post {
+    width: 260px;
+    height: 200px;
+    object-fit: cover;
+  }
+  .btn-favorites {
+    margin-top: 0.5rem;
+  }
+  .divider-details {
+    width: 15ch;
+    border-top: 2px solid var(--green300);
+    margin: 0.5rem 0.2rem 0.5rem;
+  }
+  .green-border {
+    border: none;
+  }
 }
