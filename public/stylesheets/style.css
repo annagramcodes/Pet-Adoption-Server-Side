@@ -257,7 +257,8 @@ h1 {
 }
 .grid-item {
   width: 300px;
-  object-fit: contain;
+  height: 200px;
+  object-fit: cover;
 }
 
 .btn-container-adopt {
@@ -284,6 +285,7 @@ h1 {
 .btn-adopt-dogs:hover,
 .btn-adopt-cats:hover {
   background-color: var(--yellow300);
+  border: 1px solid var(--yellow300);
 }
 
 .btn {
