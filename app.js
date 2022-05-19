@@ -19,6 +19,12 @@ hbs.registerHelper('if_eq', function (a, b, opts) {
 hbs.registerHelper('if_neq', function (a, b, opts) {
     return (a != b) ?  opts.fn(this) : opts.inverse(this);
 })
+hbs.registerHelper('contains', function (a, b, opts) {
+    return (a.includes(b)) ?  opts.fn(this) : opts.inverse(this);
+})
+hbs.registerHelper('notContains', function (a, b, opts) {
+    return (!a.includes(b)) ?  opts.fn(this) : opts.inverse(this);
+})
 
 
 const app = express();

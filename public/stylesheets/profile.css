@@ -61,6 +61,7 @@
 .animal-grid-title {
   color: var(--beige100);
   text-align: center;
+  flex-wrap: wrap;
   font-weight: 700;
   text-transform: uppercase;
   padding-bottom: 2rem;
@@ -76,6 +77,7 @@
 
 .animal-grid {
   display: flex;
+  justify-content: center;
   gap: 30px;
   flex-basis: 33%;
 }
@@ -100,7 +102,9 @@
   font-size: 1.1rem;
   color: var(--yellow900);
 }
-
+.animal-name-sm:hover {
+  color: var(--yellow800);
+}
 .animal-content-text {
   padding: 1.5rem 2rem;
 }
@@ -108,5 +112,11 @@
 @media only screen and (max-width: 600px) {
   .profile-img {
     margin-bottom: 1rem;
+  }
+  .animal-grid {
+    flex-direction: column;
+  }
+  .animal-container {
+    margin: 0 1rem;
   }
 }

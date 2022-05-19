@@ -50,14 +50,19 @@ h6.info-text {
 }
 
 .btn-favorites {
-  margin: 1.7rem 0 0 0;
-  padding: 0 0.5rem;
+  margin: 1rem 0 0 0;
+  padding: 0 0.8rem;
   font-weight: 700;
   color: var(--green700);
 }
+.btn-favorites:focus {
+  border-color: var(--yellow500);
+  box-shadow: 0 0 0 0.1rem var(--yellow500);
+}
 
 .green-border {
-  border-bottom: 2px solid var(--green300);
+  /* border-bottom: 2px solid var(--green300); */
+  padding-left: 0.2rem;
   color: var(--green700);
 }
 
@@ -138,5 +143,20 @@ h6.info-text {
   }
   .green-border {
     border: none;
+  }
+  .edit-delete-btn-container {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .img-details-post {
+    max-width: 350px;
+  }
+  .animal-info-container {
+    flex-direction: column;
+  }
+  .btn-edit,
+  .btn-delete {
+    margin: 0.5rem 0;
   }
 }

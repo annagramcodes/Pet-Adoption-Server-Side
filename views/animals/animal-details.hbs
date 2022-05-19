@@ -18,7 +18,7 @@
           <h6 class="info-text"><b>Characteristics:</b></h6>
           <p class="info-text">{{animal.character}}</p>
           {{#if_neq animal.owner._id userId}}
-            {{#if_neq animal.favoritedBy userId}}
+            {{#notContains animal.favoritedBy userId}}
               <form
                 action="/adoption-post/{{animal._id}}/favorite"
                 method="POST"
@@ -29,17 +29,21 @@
                   <span class="green-border">favorites</span>
                 </button>
               </form>
-            {{/if_neq}}
-
-            {{#if_eq animal.favoritedBy userId}}
-              <form
-                action="/adoption-post/{{animal._id}}/remove-favorite"
-                method="POST"
-              >
-                <button class="btn btn-favorites">Remove favorite</button>
-              </form>
-            {{/if_eq}}
+            {{/notContains}}
           {{/if_neq}}
+          {{#contains animal.favoritedBy userId}}
+            <form
+              action="/adoption-post/{{animal._id}}/remove-favorite"
+              method="POST"
+            >
+              <button class="btn btn-favorites"><img
+                  src="../../images/heart.png"
+                  width="20px"
+                  alt=""
+                />
+                <span class="green-border">Remove favorite</span></button>
+            </form>
+          {{/contains}}
         </div>
 
       </div>
