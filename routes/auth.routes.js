@@ -141,13 +141,9 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       // If user is found based on the email, check if the in putted password matches the one saved in the database
       bcrypt.compare(password, user.password).then((isSamePassword) => {
         if (!isSamePassword) {
-          return res.status(400).render(
-            "auth/login",
-            { user: req.session.user },
-            {
-              errorMessage: "The passords is incorrect.",
-            }
-          );
+          return res.status(400).render("auth/login", {
+            errorMessage: "The passords is incorrect.",
+          });
         }
         req.session.user = user;
         req.app.locals.user = user;
