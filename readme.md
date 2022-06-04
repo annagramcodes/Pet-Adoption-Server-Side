@@ -111,7 +111,7 @@ The url to your repository and to your deployed project
 
 [https://github.com/drttyy/Project2]()
 
-[https://pet-adoption-ironhack.herokuapp.com/]()
+[https://pet-adoption-ironhack.herokuapp.com]()
 
 <br>
 
