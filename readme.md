@@ -109,9 +109,9 @@ multer
 
 The url to your repository and to your deployed project
 
-[https://github.com/drttyy/Project2]()
+[Github Repo](https://github.com/drttyy/Project2)
 
-[https://pet-adoption-ironhack.herokuapp.com]()
+[Deployed Project](https://pet-adoption-ironhack.herokuapp.com/)
 
 <br>
 
