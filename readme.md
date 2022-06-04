@@ -5,7 +5,7 @@ Animal Adoption
 
 ## Description
 
-Help animals by adopting an animal that needs a new caretaker or give up your animal if you are uanable to care for it.
+The App seeks to help animals by bringing together people, who want to adopt a pet, with those who cannot keep their pet anymore and are looking for a new caretaker.
 
 <br>
 
@@ -111,7 +111,7 @@ The url to your repository and to your deployed project
 
 [https://github.com/drttyy/Project2]()
 
-[Deploy Link]()
+[https://pet-adoption-ironhack.herokuapp.com/]()
 
 <br>
 
