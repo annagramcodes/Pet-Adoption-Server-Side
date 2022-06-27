@@ -97,13 +97,10 @@ multer
 
 <br>
 
-## Backlog
 
-[See the Trello board.](https://trello.com/b/peU75b4E/animals-adoption-project)
 
 <br>
 
-## Links
 
 ### Git
 
